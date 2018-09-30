@@ -1,0 +1,16 @@
+//Install the following first
+gradle
+nodeJs
+Yarn
+
+//Use Yarn to install Yeoman
+yarn global add yo 
+
+//Verify the version of Yeoman
+yo --version
+
+//install JHipster with yarn
+yarn global add generator-jhipster
+
+//Verify the version of jhipster
+yo jhipster
