@@ -1,22 +1,25 @@
-<div>
-    <h2>
-        <span id="health-page-heading">Health Checks</span>
-        <button class="btn btn-primary float-right" (click)="refresh()">
-            <fa-icon [icon]="'sync'"></fa-icon> <span>Refresh</span>
-        </button>
-    </h2>
-    <div class="table-responsive">
-        <table id="healthCheck" class="table table-striped">
-            <thead>
+<div class="container-fluid ">
+    <div class="card jh-card ">
+        <h2>
+            <span id="health-page-heading">Health Checks</span>
+            <button class="btn btn-primary float-right" (click)="refresh()">
+                <fa-icon [icon]="'sync'"></fa-icon>
+                <span>Refresh</span>
+            </button>
+        </h2>
+        <div class="table-responsive">
+            <table id="healthCheck" class="table table-striped">
+                <thead>
                 <tr>
                     <th>Service Name</th>
                     <th class="text-center">Status</th>
                     <th class="text-center">Details</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr *ngFor="let health of healthData">
-                    <td><span class="text-capitalize">{{ baseName(health.name) }}</span> {{subSystemName(health.name)}}</td>
+                    <td><span class="text-capitalize">{{ baseName(health.name) }}</span> {{subSystemName(health.name)}}
+                    </td>
                     <td class="text-center">
                         <span class="badge" [ngClass]="getBadgeClass(health.status)">
                             {{health.status}}
@@ -28,7 +31,8 @@
                         </a>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

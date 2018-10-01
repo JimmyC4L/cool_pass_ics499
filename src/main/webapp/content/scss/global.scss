@@ -1,5 +1,4 @@
 @import 'bootstrap-variables';
-
 /* ==============================================================
 Bootstrap tweaks
 ===============================================================*/
@@ -50,7 +49,8 @@ Generic styles
 
 .jh-card {
     padding: 1.5%;
-    margin-top: 20px;
+    margin: auto;
+    margin-top: 80px !important;
     border: none;
 }
 
@@ -229,3 +229,25 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+body, html {
+    height: 100%;
+}
+.bg {
+    /* The image z position */
+    z-index:-1;
+
+    /* The image used */
+    background-image: url('../images/bg.jpg');
+
+    /* Full height */
+    height: 120%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.transparent {
+    opacity: 0.95 !important;
+}

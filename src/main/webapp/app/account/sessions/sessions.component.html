@@ -1,24 +1,25 @@
-<div>
-    <h2 *ngIf="account">Active sessions for [<b>{{account.login}}</b>]</h2>
+<div class="container-fluid ">
+    <div class="col-lg-10 card jh-card ">
+        <h2 *ngIf="account">Active sessions for [<b>{{account.login}}</b>]</h2>
 
-    <div class="alert alert-success" *ngIf="success">
-        <strong>Session invalidated!</strong>
-    </div>
-    <div class="alert alert-danger" *ngIf="error">
-        <strong>An error has occured!</strong> The session could not be invalidated.
-    </div>
+        <div class="alert alert-success" *ngIf="success">
+            <strong>Session invalidated!</strong>
+        </div>
+        <div class="alert alert-danger" *ngIf="error">
+            <strong>An error has occured!</strong> The session could not be invalidated.
+        </div>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
                 <tr>
                     <th>IP Address</th>
                     <th>User agent</th>
                     <th>Date</th>
                     <th></th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr *ngFor="let session of sessions">
                     <td>{{session.ipAddress}}</td>
                     <td>{{session.userAgent}}</td>
@@ -27,11 +28,12 @@
                         <button type="submit"
                                 class="btn btn-primary"
                                 (click)="invalidate(session.series)">
-                                 Invalidate
+                            Invalidate
                         </button>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
