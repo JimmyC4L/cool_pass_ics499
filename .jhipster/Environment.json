@@ -1,0 +1,24 @@
+{
+    "name": "Environment",
+    "fields": [
+        {
+            "fieldName": "server",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181003013816",
+    "javadoc": "Environment entity.\n@author Team 2.",
+    "entityTableName": "environment",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,53 @@
+/**
+ * Environment entity.
+ * @author Team 2.
+ */
+entity Environment {
+	id Long
+    server String
+    name String
+    
+}
+/**
+ * SharedAccount entity.
+ * Shared accounts reside on an 
+ *environment
+ * @author Team2
+ */
+entity SharedAccount {
+	id Long
+    login String
+    password String
+    envID Long
+}
+
+/**
+ * Request entity.
+ * Users enter request to get 
+ * access to a role.
+ * Business Owners or Admins can
+ * approve or reject a role
+ * @author Team 2.
+ */
+entity Request {
+	id Long,
+	description String
+	requesterId Long
+	authorityName String
+    //status = p, a, r
+    status String
+}
+
+
+// Set pagination options
+paginate Environment, Request with infinite-scroll
+paginate SharedAccount with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
