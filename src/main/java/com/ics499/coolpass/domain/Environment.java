@@ -1,10 +1,13 @@
 package com.ics499.coolpass.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -27,6 +30,9 @@ public class Environment implements Serializable {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "environment")
+    private Set<SharedAccount> sharedAccounts = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -61,6 +67,31 @@ public class Environment implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<SharedAccount> getSharedAccounts() {
+        return sharedAccounts;
+    }
+
+    public Environment sharedAccounts(Set<SharedAccount> sharedAccounts) {
+        this.sharedAccounts = sharedAccounts;
+        return this;
+    }
+
+    public Environment addSharedAccount(SharedAccount sharedAccount) {
+        this.sharedAccounts.add(sharedAccount);
+        sharedAccount.setEnvironment(this);
+        return this;
+    }
+
+    public Environment removeSharedAccount(SharedAccount sharedAccount) {
+        this.sharedAccounts.remove(sharedAccount);
+        sharedAccount.setEnvironment(null);
+        return this;
+    }
+
+    public void setSharedAccounts(Set<SharedAccount> sharedAccounts) {
+        this.sharedAccounts = sharedAccounts;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
