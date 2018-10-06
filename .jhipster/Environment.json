@@ -1,5 +1,14 @@
 {
-    "name": "Environment",
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "sharedAccount",
+            "otherEntityName": "sharedAccount",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "environment"
+        }
+    ],
     "fields": [
         {
             "fieldName": "server",
@@ -8,17 +17,18 @@
         {
             "fieldName": "name",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "authority_name",
+            "fieldType": "String"
         }
     ],
-    "relationships": [],
     "changelogDate": "20181003013816",
-    "javadoc": "Environment entity.\n@author Team 2.",
-    "entityTableName": "environment",
     "dto": "no",
-    "pagination": "infinite-scroll",
+    "searchEngine": false,
     "service": "serviceImpl",
+    "entityTableName": "environment",
     "jpaMetamodelFiltering": false,
-    "fluentMethods": true,
-    "clientRootFolder": "",
-    "applications": "*"
+    "pagination": "infinite-scroll",
+    "javadoc": "Environment entity.\n@author Team 2."
 }

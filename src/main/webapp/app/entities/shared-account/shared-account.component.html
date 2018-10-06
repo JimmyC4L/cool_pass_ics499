@@ -25,7 +25,7 @@
                     <th jhiSortBy="password"><span>Password</span>
                         <fa-icon [icon]="'sort'"></fa-icon>
                     </th>
-                    <th jhiSortBy="envID"><span>Env ID</span>
+                    <th jhiSortBy="environment.id"><span>Environment</span>
                         <fa-icon [icon]="'sort'"></fa-icon>
                     </th>
                     <th></th>
@@ -36,7 +36,11 @@
                     <td><a [routerLink]="['/shared-account', sharedAccount.id, 'view' ]">{{sharedAccount.id}}</a></td>
                     <td>{{sharedAccount.login}}</td>
                     <td>{{sharedAccount.password}}</td>
-                    <td>{{sharedAccount.envID}}</td>
+                    <td>
+                        <div *ngIf="sharedAccount.environment">
+                            <a [routerLink]="['../environment', sharedAccount.environment?.id, 'view' ]">{{sharedAccount.environment?.id}}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
