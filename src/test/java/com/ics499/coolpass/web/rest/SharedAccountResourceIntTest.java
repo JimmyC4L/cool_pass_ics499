@@ -47,9 +47,6 @@ public class SharedAccountResourceIntTest {
     private static final String DEFAULT_PASSWORD = "AAAAAAAAAA";
     private static final String UPDATED_PASSWORD = "BBBBBBBBBB";
 
-    private static final Long DEFAULT_ENV_ID = 1L;
-    private static final Long UPDATED_ENV_ID = 2L;
-
     @Autowired
     private SharedAccountRepository sharedAccountRepository;
     
@@ -92,8 +89,7 @@ public class SharedAccountResourceIntTest {
     public static SharedAccount createEntity(EntityManager em) {
         SharedAccount sharedAccount = new SharedAccount()
             .login(DEFAULT_LOGIN)
-            .password(DEFAULT_PASSWORD)
-            .envID(DEFAULT_ENV_ID);
+            .password(DEFAULT_PASSWORD);
         // Add required entity
         Environment environment = EnvironmentResourceIntTest.createEntity(em);
         em.persist(environment);
@@ -124,7 +120,6 @@ public class SharedAccountResourceIntTest {
         SharedAccount testSharedAccount = sharedAccountList.get(sharedAccountList.size() - 1);
         assertThat(testSharedAccount.getLogin()).isEqualTo(DEFAULT_LOGIN);
         assertThat(testSharedAccount.getPassword()).isEqualTo(DEFAULT_PASSWORD);
-        assertThat(testSharedAccount.getEnvID()).isEqualTo(DEFAULT_ENV_ID);
     }
 
     @Test
@@ -158,8 +153,7 @@ public class SharedAccountResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(sharedAccount.getId().intValue())))
             .andExpect(jsonPath("$.[*].login").value(hasItem(DEFAULT_LOGIN.toString())))
-            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD.toString())))
-            .andExpect(jsonPath("$.[*].envID").value(hasItem(DEFAULT_ENV_ID.intValue())));
+            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD.toString())));
     }
     
     @Test
@@ -174,8 +168,7 @@ public class SharedAccountResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(sharedAccount.getId().intValue()))
             .andExpect(jsonPath("$.login").value(DEFAULT_LOGIN.toString()))
-            .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD.toString()))
-            .andExpect(jsonPath("$.envID").value(DEFAULT_ENV_ID.intValue()));
+            .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD.toString()));
     }
 
     @Test
@@ -200,8 +193,7 @@ public class SharedAccountResourceIntTest {
         em.detach(updatedSharedAccount);
         updatedSharedAccount
             .login(UPDATED_LOGIN)
-            .password(UPDATED_PASSWORD)
-            .envID(UPDATED_ENV_ID);
+            .password(UPDATED_PASSWORD);
 
         restSharedAccountMockMvc.perform(put("/api/shared-accounts")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -214,7 +206,6 @@ public class SharedAccountResourceIntTest {
         SharedAccount testSharedAccount = sharedAccountList.get(sharedAccountList.size() - 1);
         assertThat(testSharedAccount.getLogin()).isEqualTo(UPDATED_LOGIN);
         assertThat(testSharedAccount.getPassword()).isEqualTo(UPDATED_PASSWORD);
-        assertThat(testSharedAccount.getEnvID()).isEqualTo(UPDATED_ENV_ID);
     }
 
     @Test

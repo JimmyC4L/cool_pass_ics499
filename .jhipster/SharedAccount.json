@@ -20,10 +20,6 @@
         {
             "fieldName": "password",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "envID",
-            "fieldType": "Long"
         }
     ],
     "changelogDate": "20181003013817",

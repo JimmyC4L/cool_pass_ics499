@@ -30,10 +30,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="env_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <column name="environment_id" type="bigint">
                 <constraints nullable="false" />
             </column>

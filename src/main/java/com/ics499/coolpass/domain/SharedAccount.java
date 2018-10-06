@@ -32,9 +32,6 @@ public class SharedAccount implements Serializable {
     @Column(name = "jhi_password")
     private String password;
 
-    @Column(name = "env_id")
-    private Long envID;
-
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties("sharedAccounts")
@@ -73,19 +70,6 @@ public class SharedAccount implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Long getEnvID() {
-        return envID;
-    }
-
-    public SharedAccount envID(Long envID) {
-        this.envID = envID;
-        return this;
-    }
-
-    public void setEnvID(Long envID) {
-        this.envID = envID;
     }
 
     public Environment getEnvironment() {
@@ -128,7 +112,6 @@ public class SharedAccount implements Serializable {
             "id=" + getId() +
             ", login='" + getLogin() + "'" +
             ", password='" + getPassword() + "'" +
-            ", envID=" + getEnvID() +
             "}";
     }
 }
