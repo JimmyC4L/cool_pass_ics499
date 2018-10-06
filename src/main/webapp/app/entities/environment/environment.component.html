@@ -25,6 +25,9 @@
                     <th jhiSortBy="name"><span>Name</span>
                         <fa-icon [icon]="'sort'"></fa-icon>
                     </th>
+                    <th jhiSortBy="authority_name"><span>Authority Name</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
                     <th></th>
                 </tr>
                 </thead>
@@ -34,6 +37,7 @@
                     <td><a [routerLink]="['/environment', environment.id, 'view' ]">{{environment.id}}</a></td>
                     <td>{{environment.server}}</td>
                     <td>{{environment.name}}</td>
+                    <td>{{environment.authority_name}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
@@ -64,4 +68,3 @@
         </div>
     </div>
 </div>
-

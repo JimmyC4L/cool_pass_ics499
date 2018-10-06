@@ -17,6 +17,10 @@
         {
             "fieldName": "name",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "authority_name",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20181003013816",

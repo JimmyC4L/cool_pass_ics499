@@ -3,6 +3,7 @@ package com.ics499.coolpass.web.rest;
 import com.ics499.coolpass.CoolPassApp;
 
 import com.ics499.coolpass.domain.SharedAccount;
+import com.ics499.coolpass.domain.Environment;
 import com.ics499.coolpass.repository.SharedAccountRepository;
 import com.ics499.coolpass.service.SharedAccountService;
 import com.ics499.coolpass.web.rest.errors.ExceptionTranslator;
@@ -93,6 +94,11 @@ public class SharedAccountResourceIntTest {
             .login(DEFAULT_LOGIN)
             .password(DEFAULT_PASSWORD)
             .envID(DEFAULT_ENV_ID);
+        // Add required entity
+        Environment environment = EnvironmentResourceIntTest.createEntity(em);
+        em.persist(environment);
+        em.flush();
+        sharedAccount.setEnvironment(environment);
         return sharedAccount;
     }
 

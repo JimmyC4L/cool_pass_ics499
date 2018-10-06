@@ -27,6 +27,25 @@
                                    [(ngModel)]="sharedAccount.envID"/>
                         </div>
 
+                        <div class="form-group">
+                            <label class="form-control-label" for="field_environment">Environment</label>
+                            <select class="form-control" id="field_environment" name="environment"
+                                    [(ngModel)]="sharedAccount.environment" required>
+                                <option *ngIf="!editForm.value.environment" [ngValue]="null" selected></option>
+                                <option
+                                    [ngValue]="environmentOption.id === sharedAccount.environment?.id ? sharedAccount.environment : environmentOption"
+                                    *ngFor="let environmentOption of environments; trackBy: trackEnvironmentById">
+                                    {{environmentOption.id}}
+                                </option>
+                            </select>
+                        </div>
+                        <div
+                            [hidden]="!(editForm.controls.environment?.dirty && editForm.controls.environment?.invalid)">
+                            <small class="form-text text-danger"
+                                   [hidden]="!editForm.controls.environment?.errors?.required">
+                                This field is required.
+                            </small>
+                        </div>
                     </div>
                     <div>
                         <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
@@ -41,4 +60,3 @@
             </div>
         </div>
     </div>
-</div>

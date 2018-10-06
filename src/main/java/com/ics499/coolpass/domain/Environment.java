@@ -31,6 +31,9 @@ public class Environment implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "authority_name")
+    private String authority_name;
+
     @OneToMany(mappedBy = "environment")
     private Set<SharedAccount> sharedAccounts = new HashSet<>();
 
@@ -67,6 +70,19 @@ public class Environment implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAuthority_name() {
+        return authority_name;
+    }
+
+    public Environment authority_name(String authority_name) {
+        this.authority_name = authority_name;
+        return this;
+    }
+
+    public void setAuthority_name(String authority_name) {
+        this.authority_name = authority_name;
     }
 
     public Set<SharedAccount> getSharedAccounts() {
@@ -121,6 +137,7 @@ public class Environment implements Serializable {
             "id=" + getId() +
             ", server='" + getServer() + "'" +
             ", name='" + getName() + "'" +
+            ", authority_name='" + getAuthority_name() + "'" +
             "}";
     }
 }

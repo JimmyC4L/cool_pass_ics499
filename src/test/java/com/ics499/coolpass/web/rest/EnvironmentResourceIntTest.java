@@ -46,6 +46,9 @@ public class EnvironmentResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_AUTHORITY_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_AUTHORITY_NAME = "BBBBBBBBBB";
+
     @Autowired
     private EnvironmentRepository environmentRepository;
     
@@ -88,7 +91,8 @@ public class EnvironmentResourceIntTest {
     public static Environment createEntity(EntityManager em) {
         Environment environment = new Environment()
             .server(DEFAULT_SERVER)
-            .name(DEFAULT_NAME);
+            .name(DEFAULT_NAME)
+            .authority_name(DEFAULT_AUTHORITY_NAME);
         return environment;
     }
 
@@ -114,6 +118,7 @@ public class EnvironmentResourceIntTest {
         Environment testEnvironment = environmentList.get(environmentList.size() - 1);
         assertThat(testEnvironment.getServer()).isEqualTo(DEFAULT_SERVER);
         assertThat(testEnvironment.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testEnvironment.getAuthority_name()).isEqualTo(DEFAULT_AUTHORITY_NAME);
     }
 
     @Test
@@ -147,7 +152,8 @@ public class EnvironmentResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(environment.getId().intValue())))
             .andExpect(jsonPath("$.[*].server").value(hasItem(DEFAULT_SERVER.toString())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].authority_name").value(hasItem(DEFAULT_AUTHORITY_NAME.toString())));
     }
     
     @Test
@@ -162,7 +168,8 @@ public class EnvironmentResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(environment.getId().intValue()))
             .andExpect(jsonPath("$.server").value(DEFAULT_SERVER.toString()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.authority_name").value(DEFAULT_AUTHORITY_NAME.toString()));
     }
 
     @Test
@@ -187,7 +194,8 @@ public class EnvironmentResourceIntTest {
         em.detach(updatedEnvironment);
         updatedEnvironment
             .server(UPDATED_SERVER)
-            .name(UPDATED_NAME);
+            .name(UPDATED_NAME)
+            .authority_name(UPDATED_AUTHORITY_NAME);
 
         restEnvironmentMockMvc.perform(put("/api/environments")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -200,6 +208,7 @@ public class EnvironmentResourceIntTest {
         Environment testEnvironment = environmentList.get(environmentList.size() - 1);
         assertThat(testEnvironment.getServer()).isEqualTo(UPDATED_SERVER);
         assertThat(testEnvironment.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testEnvironment.getAuthority_name()).isEqualTo(UPDATED_AUTHORITY_NAME);
     }
 
     @Test
