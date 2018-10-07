@@ -7,12 +7,12 @@
         Added the constraints for entity SharedAccount.
     -->
     <changeSet id="20181003013817-2" author="jhipster">
-        <addForeignKeyConstraint baseColumnNames="env_id"
+        
+        <addForeignKeyConstraint baseColumnNames="environment_id"
                                  baseTableName="shared_account"
-                                 constraintName="fk_shared_account_env_id"
-                                 onDelete="CASCADE"
-                                 onUpdate="RESTRICT"
+                                 constraintName="fk_shared_account_environment_id"
                                  referencedColumnNames="id"
                                  referencedTableName="environment"/>
+
     </changeSet>
 </databaseChangeLog>

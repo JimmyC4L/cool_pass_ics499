@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -48,7 +49,7 @@ public class SharedAccountResource {
      */
     @PostMapping("/shared-accounts")
     @Timed
-    public ResponseEntity<SharedAccount> createSharedAccount(@RequestBody SharedAccount sharedAccount) throws URISyntaxException {
+    public ResponseEntity<SharedAccount> createSharedAccount(@Valid @RequestBody SharedAccount sharedAccount) throws URISyntaxException {
         log.debug("REST request to save SharedAccount : {}", sharedAccount);
         if (sharedAccount.getId() != null) {
             throw new BadRequestAlertException("A new sharedAccount cannot already have an ID", ENTITY_NAME, "idexists");
@@ -70,7 +71,7 @@ public class SharedAccountResource {
      */
     @PutMapping("/shared-accounts")
     @Timed
-    public ResponseEntity<SharedAccount> updateSharedAccount(@RequestBody SharedAccount sharedAccount) throws URISyntaxException {
+    public ResponseEntity<SharedAccount> updateSharedAccount(@Valid @RequestBody SharedAccount sharedAccount) throws URISyntaxException {
         log.debug("REST request to update SharedAccount : {}", sharedAccount);
         if (sharedAccount.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

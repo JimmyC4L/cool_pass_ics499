@@ -1,5 +1,17 @@
 {
-    "name": "SharedAccount",
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "environment",
+            "otherEntityName": "environment",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        }
+    ],
     "fields": [
         {
             "fieldName": "login",
@@ -8,21 +20,14 @@
         {
             "fieldName": "password",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "envID",
-            "fieldType": "Long"
         }
     ],
-    "relationships": [],
     "changelogDate": "20181003013817",
-    "javadoc": "SharedAccount entity.\nShared accounts reside on an\nenvironment\n@author Team2",
-    "entityTableName": "shared_account",
     "dto": "no",
-    "pagination": "pagination",
+    "searchEngine": false,
     "service": "serviceImpl",
+    "entityTableName": "shared_account",
     "jpaMetamodelFiltering": false,
-    "fluentMethods": true,
-    "clientRootFolder": "",
-    "applications": "*"
+    "pagination": "pagination",
+    "javadoc": "SharedAccount entity.\nShared accounts reside on an\nenvironment\n@author Team2"
 }

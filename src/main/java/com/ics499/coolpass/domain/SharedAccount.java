@@ -1,8 +1,10 @@
 package com.ics499.coolpass.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -30,8 +32,10 @@ public class SharedAccount implements Serializable {
     @Column(name = "jhi_password")
     private String password;
 
-    @Column(name = "env_id")
-    private Long envID;
+    @ManyToOne(optional = false)
+    @NotNull
+    @JsonIgnoreProperties("sharedAccounts")
+    private Environment environment;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -68,17 +72,17 @@ public class SharedAccount implements Serializable {
         this.password = password;
     }
 
-    public Long getEnvID() {
-        return envID;
+    public Environment getEnvironment() {
+        return environment;
     }
 
-    public SharedAccount envID(Long envID) {
-        this.envID = envID;
+    public SharedAccount environment(Environment environment) {
+        this.environment = environment;
         return this;
     }
 
-    public void setEnvID(Long envID) {
-        this.envID = envID;
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -108,7 +112,6 @@ public class SharedAccount implements Serializable {
             "id=" + getId() +
             ", login='" + getLogin() + "'" +
             ", password='" + getPassword() + "'" +
-            ", envID=" + getEnvID() +
             "}";
     }
 }
