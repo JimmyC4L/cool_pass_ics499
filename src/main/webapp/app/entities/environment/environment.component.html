@@ -37,7 +37,7 @@
                     <td><a [routerLink]="['/environment', environment.id, 'view' ]">{{environment.id}}</a></td>
                     <td>{{environment.server}}</td>
                     <td>{{environment.name}}</td>
-                    <td>{{environment.authority_name}}</td>
+                    <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{environment.authority_name}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
