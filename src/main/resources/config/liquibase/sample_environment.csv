@@ -1,0 +1,17 @@
+authority_name,id,server,name
+ROLE_FINANCE_QA,1,zues.team2.com,fin901
+ROLE_FINANCE_QA,2,ares.team2.com,fin10
+ROLE_FINANCE_QA,3,demeter.team2.com,fin11
+ROLE_FINANCE_QA/ROLE_PROCUREMENT_QA/ROLE_FINANCE_DEVELOPER/ROLE_PROCUREMENT_DEVELOPER/ROLE_TECHNOLOGY_QA,4,athena.team2.com,fin11proc11
+ROLE_PROCUREMENT_QA,5,zues.team2.com,proc901
+ROLE_PROCUREMENT_QA,6,ares.team2.com,proc10
+ROLE_PROCUREMENT_QA,7,demeter.team2.com,proc11
+ROLE_FINANCE_DEVELOPER,8,zues.team2.com,fin901dev
+ROLE_FINANCE_DEVELOPER,9,ares.team2.com,fin10dev
+ROLE_FINANCE_DEVELOPER,10,demeter.team2.com,fin11dev
+ROLE_PROCUREMENT_DEVELOPER,11,zues.team2.com,proc901dev
+ROLE_PROCUREMENT_DEVELOPER,12,ares.team2.com,proc10dev
+ROLE_PROCUREMENT_DEVELOPER,13,demeter.team2.com,proc11dev
+ROLE_TECHNOLOGY_QA,14,athena.team2.com,techqa
+ROLE_TECHNOLOGY_QA,15,athena.team2.com,techdev
+ROLE_TECHNOLOGY_QA,16,hera.team2.com,techdev
