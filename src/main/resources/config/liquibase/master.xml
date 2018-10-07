@@ -10,5 +10,5 @@
     <include file="config/liquibase/changelog/20181003013818_added_entity_Request.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20181003013817_added_entity_constraints_SharedAccount.xml" relativeToChangelogFile="false"/>
-    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <include file="config/liquibase/changelog/20181005013820_import_sample_environment.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

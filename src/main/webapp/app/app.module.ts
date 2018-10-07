@@ -20,6 +20,7 @@ import { StateStorageService } from 'app/core/auth/state-storage.service';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
+import { WorkspaceEnvironmentComponent } from './layouts/workspace-environment/workspace-environment.component';
 
 @NgModule({
     imports: [
@@ -30,10 +31,10 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         CoolPassCoreModule,
         CoolPassHomeModule,
         CoolPassAccountModule,
-        CoolPassEntityModule
+        CoolPassEntityModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, WorkspaceEnvironmentComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
