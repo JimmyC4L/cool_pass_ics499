@@ -3,7 +3,7 @@ import './vendor.ts';
 import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import {NgbDatepickerConfig, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 
@@ -17,6 +17,7 @@ import { CoolPassHomeModule } from './home/home.module';
 import { CoolPassAccountModule } from './account/account.module';
 import { CoolPassEntityModule } from './entities/entity.module';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
+
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
@@ -27,6 +28,7 @@ import { WorkspaceEnvironmentComponent } from './layouts/workspace-environment/w
         BrowserModule,
         CoolPassAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
+        NgbModule,
         CoolPassSharedModule,
         CoolPassCoreModule,
         CoolPassHomeModule,
