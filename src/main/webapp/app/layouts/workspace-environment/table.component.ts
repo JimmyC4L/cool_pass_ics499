@@ -6,9 +6,8 @@ import {HttpErrorResponse, HttpHeaders, HttpResponse} from '@angular/common/http
 import {IEnvironment} from 'app/shared/model/environment.model';
 import {EnvironmentService} from 'app/entities/environment/environment.service';
 import {JhiAlertService, JhiParseLinks} from 'ng-jhipster';
-import {ISharedAccount} from "app/shared/model/shared-account.model";
-import {ITEMS_PER_PAGE} from "app/shared";
-import {Principal} from "app/core";
+import {ITEMS_PER_PAGE} from 'app/shared';
+import {Principal} from 'app/core';
 
 @Component({
     selector: 'app-table',
@@ -24,7 +23,7 @@ import {Principal} from "app/core";
 })
 export class TableComponent implements OnInit {
     data: IEnvironment[] = [
-        {id: 1, name: 'Hydrogen', server: "chicken",}
+        {id: 1, name: 'Hydrogen', server: 'chicken',}
     ];
     currentAccount: any;
     displayedColumns = ['id', 'server', 'name'];
@@ -89,12 +88,12 @@ export class TableComponent implements OnInit {
 
     private getEnvironmentsByAuthority() {
         for (let environment of this.allEnvironments) {
-            this.authorityNames = environment.authority_name.split("/");
+            this.authorityNames = environment.authority_name.split('/');
             for (let authority  of this.currentAccount.authorities) {
-              if(this.authorityNames.includes(authority)){
-                  this.data.push(environment);
-                  break;
-              }
+                if (this.authorityNames.includes(authority)) {
+                    this.data.push(environment);
+                    break;
+                }
             }
         }
     }
