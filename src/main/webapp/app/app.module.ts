@@ -13,7 +13,7 @@ import { NotificationInterceptor } from './blocks/interceptor/notification.inter
 import { CoolPassSharedModule } from 'app/shared';
 import { CoolPassCoreModule } from 'app/core';
 import { CoolPassAppRoutingModule } from './app-routing.module';
-import { CoolPassHomeModule } from './home/home.module';
+import { CoolPassHomeModule } from 'app/home';
 import { CoolPassAccountModule } from './account/account.module';
 import { CoolPassEntityModule } from './entities/entity.module';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
@@ -21,11 +21,17 @@ import { StateStorageService } from 'app/core/auth/state-storage.service';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
-import { WorkspaceEnvironmentComponent } from './layouts/workspace-environment/workspace-environment.component';
+import { WorkspaceEnvironmentComponent } from 'app/layouts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTableModule, MatToolbarModule} from '@angular/material';
+import {TableComponent} from 'app/layouts/workspace-environment/table.component';
 
 @NgModule({
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatTableModule,
         CoolPassAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
         NgbModule,
@@ -36,7 +42,7 @@ import { WorkspaceEnvironmentComponent } from './layouts/workspace-environment/w
         CoolPassEntityModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, WorkspaceEnvironmentComponent],
+    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, WorkspaceEnvironmentComponent, TableComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
