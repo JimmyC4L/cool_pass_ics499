@@ -24,8 +24,10 @@
 
     <!-- Expanded Content Column - The detail row is made up of this one column -->
     <ng-container matColumnDef="expandedDetail">
-      <mat-cell *matCellDef="let detail">
-        The symbol for {{detail.element.name}} is {{detail.element.symbol}}
+        <mat-cell *matCellDef="let detail">
+            <pre>
+                {{generateSharedAccountsListForDisplay(detail)}}
+            </pre>
       </mat-cell>
     </ng-container>
 
@@ -41,8 +43,3 @@
     </mat-row>
   </mat-table>
 </div>
-
-
-<!-- Copyright 2017 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
