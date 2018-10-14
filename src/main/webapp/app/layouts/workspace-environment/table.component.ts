@@ -137,13 +137,13 @@ export class TableComponent implements OnInit {
         }
     }
 
-    private generateSharedAccountsListForDisplay(detail : any) {
-        let finalString : string[] = ["\n","The list of shared accounts for this environment:\n"];
+    generateSharedAccountsListForDisplay(detail : any) {
+        let finalString : string[] = ['\n','The list of shared accounts for this environment:\n'];
         for (let sharedAccount of detail.element.sharedAccounts) {
-            finalString.push("Login: " + sharedAccount.login + "    ");
-            finalString.push("Password: " + sharedAccount.password + "\n");
+            finalString.push('Login: ' + sharedAccount.login + '    ');
+            finalString.push('Password: ' + sharedAccount.password + '\n');
         }
-        return finalString.join("");
+        return finalString.join('');
     }
 
     ngOnInit(): void {
