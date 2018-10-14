@@ -13,7 +13,7 @@
                 > You are logged in as user "{{account.login}}". </span>
             </div>
             <div *ngSwitchCase="true">
-                <button class="btn btn-lg btn-primary btn-block btn-info">Go to Work Space</button>
+                <button class="btn btn-lg btn-primary btn-block btn-info" routerLink="/workspace-environment">Go to Work Space</button>
             </div>
             <div *ngSwitchCase="false">
                 <button class="btn btn-lg btn-primary btn-block btn-info" (click)="login()">Sign in</button>
