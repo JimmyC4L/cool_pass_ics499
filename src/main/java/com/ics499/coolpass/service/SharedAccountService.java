@@ -5,6 +5,7 @@ import com.ics499.coolpass.domain.SharedAccount;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -27,6 +28,8 @@ public interface SharedAccountService {
      * @return the list of entities
      */
     Page<SharedAccount> findAll(Pageable pageable);
+
+    List<SharedAccount> findAll();
 
 
     /**

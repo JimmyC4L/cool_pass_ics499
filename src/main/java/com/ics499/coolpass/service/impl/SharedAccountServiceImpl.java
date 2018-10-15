@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -50,6 +51,11 @@ public class SharedAccountServiceImpl implements SharedAccountService {
     public Page<SharedAccount> findAll(Pageable pageable) {
         log.debug("Request to get all SharedAccounts");
         return sharedAccountRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<SharedAccount> findAll() {
+        return sharedAccountRepository.findAll();
     }
 
 

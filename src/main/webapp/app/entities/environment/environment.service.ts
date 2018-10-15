@@ -27,6 +27,10 @@ export class EnvironmentService {
         return this.http.get<IEnvironment>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
 
+    findAll(): Observable<EntityArrayResponseType> {
+        return this.http.get<IEnvironment[]>(this.resourceUrl + '-no-page', { observe: 'response' });
+    }
+
     query(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
         return this.http.get<IEnvironment[]>(this.resourceUrl, { params: options, observe: 'response' });

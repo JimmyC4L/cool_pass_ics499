@@ -82,6 +82,14 @@ public class SharedAccountResource {
             .body(result);
     }
 
+    @GetMapping("/shared-accounts-no-page")
+    @Timed
+    public ResponseEntity<List<SharedAccount>> getAllEnvironments() {
+        log.debug("REST request to get all of Environments");
+        List<SharedAccount> data = sharedAccountService.findAll();
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
     /**
      * GET  /shared-accounts : get all the sharedAccounts.
      *

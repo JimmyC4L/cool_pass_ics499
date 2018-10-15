@@ -5,6 +5,7 @@ import com.ics499.coolpass.domain.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -27,6 +28,9 @@ public interface EnvironmentService {
      * @return the list of entities
      */
     Page<Environment> findAll(Pageable pageable);
+
+
+    List<Environment> findAll();
 
 
     /**

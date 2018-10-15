@@ -33,13 +33,11 @@ export class TableComponent implements OnInit {
     allEnvironments: IEnvironment[];
     authorityNames: string[];
 
-    queryCount: any;
     itemsPerPage: number;
     links: any;
     page: any;
     predicate: any;
     reverse: any;
-    totalItems: number;
 
     isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow');
 
@@ -59,43 +57,30 @@ export class TableComponent implements OnInit {
 
     loadAllEnvironmentsAndFilterBasedOnAuthority() {
         this.environmentService
-            .query({
-                page: this.page,
-                size: this.itemsPerPage,
-                sort: this.sort()
-            })
+            .findAll()
             .subscribe(
-                (res: HttpResponse<IEnvironment[]>) => this.paginateEnvironments(res.body, res.headers),
+                (res: HttpResponse<IEnvironment[]>) => this.populateEnvironmentsAndFilter(res.body),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
     }
 
-    private paginateEnvironments(data: IEnvironment[], headers: HttpHeaders) {
-        this.links = this.parseLinks.parse(headers.get('link'));
-        this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
+    private populateEnvironmentsAndFilter(data: IEnvironment[]) {
         for (let i = 0; i < data.length; i++) {
             this.allEnvironments.push(data[i]);
         }
         this.getEnvironmentsByAuthority();
     }
 
-    loadAllSharedAccount() {
+    loadAllSharedAccountAndFilterBasedOnEnvironment() {
         this.sharedAccountService
-            .query({
-                page: this.page - 1,
-                size: this.itemsPerPage,
-                sort: this.sort()
-            })
+            .findAll()
             .subscribe(
-                (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
+                (res: HttpResponse<ISharedAccount[]>) => this.populateSharedAccountsAndFilter(res.body),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
     }
 
-    private paginateSharedAccounts(data: ISharedAccount[], headers: HttpHeaders) {
-        this.links = this.parseLinks.parse(headers.get('link'));
-        this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
+    private populateSharedAccountsAndFilter(data: ISharedAccount[]) {
         this.sharedAccounts = data;
         this.getSharedAccountsByEnvironments();
     }
@@ -104,13 +89,19 @@ export class TableComponent implements OnInit {
         for (let environment of this.data) {
             var sharedAccountsByEnvironment : ISharedAccount[] = [];
             for (let sharedAccount  of this.sharedAccounts) {
-                if(sharedAccount.environment.id == environment.id){
+                if(sharedAccount.environment.id === environment.id){
                     sharedAccountsByEnvironment.push(sharedAccount);
                 }
             }
             environment.sharedAccounts = sharedAccountsByEnvironment;
         }
         this.dataSource = new ExampleDataSource(this.data);
+    }
+
+    loadPage(page) {
+        this.page = page;
+        this.loadAllEnvironmentsAndFilterBasedOnAuthority();
+        this.loadAllSharedAccountAndFilterBasedOnEnvironment();
     }
 
     sort() {
@@ -137,8 +128,8 @@ export class TableComponent implements OnInit {
         }
     }
 
-    generateSharedAccountsListForDisplay(detail : any) {
-        let finalString : string[] = ['\n','The list of shared accounts for this environment:\n'];
+    generateSharedAccountsListForDisplay(detail: any) {
+        let finalString: string[] = ['\n', 'The list of shared accounts for this environment:\n'];
         for (let sharedAccount of detail.element.sharedAccounts) {
             finalString.push('Login: ' + sharedAccount.login + '    ');
             finalString.push('Password: ' + sharedAccount.password + '\n');
@@ -152,7 +143,7 @@ export class TableComponent implements OnInit {
             this.currentAccount = account;
         });
         this.loadAllEnvironmentsAndFilterBasedOnAuthority();
-        this.loadAllSharedAccount();
+        this.loadAllSharedAccountAndFilterBasedOnEnvironment();
         // this.getEnvironmentsByAuthority();
     }
 

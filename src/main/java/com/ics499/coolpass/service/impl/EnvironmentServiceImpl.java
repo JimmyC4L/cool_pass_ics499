@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -50,6 +51,11 @@ public class EnvironmentServiceImpl implements EnvironmentService {
     public Page<Environment> findAll(Pageable pageable) {
         log.debug("Request to get all Environments");
         return environmentRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Environment> findAll() {
+        return environmentRepository.findAll();
     }
 
 

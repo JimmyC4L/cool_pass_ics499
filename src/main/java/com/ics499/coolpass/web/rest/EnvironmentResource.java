@@ -96,6 +96,14 @@ public class EnvironmentResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    @GetMapping("/environments-no-page")
+    @Timed
+    public ResponseEntity<List<Environment>> getAllEnvironments() {
+        log.debug("REST request to get all of Environments");
+        List<Environment> data = environmentService.findAll();
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
     /**
      * GET  /environments/:id : get the "id" environment.
      *
