@@ -6,7 +6,7 @@ export const workspaceEnvironmentRoute: Route  = {
         path: 'workspace-environment',
         component: WorkspaceEnvironmentComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
             pageTitle: 'Workspace Environments'
         },
         canActivate: [UserRouteAccessService]
