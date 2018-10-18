@@ -34,7 +34,7 @@ export const sharedAccountRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
             defaultSort: 'id,asc',
             pageTitle: 'SharedAccounts'
         },
@@ -47,7 +47,7 @@ export const sharedAccountRoute: Routes = [
             sharedAccount: SharedAccountResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
             pageTitle: 'SharedAccounts'
         },
         canActivate: [UserRouteAccessService]
@@ -59,7 +59,7 @@ export const sharedAccountRoute: Routes = [
             sharedAccount: SharedAccountResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
             pageTitle: 'SharedAccounts'
         },
         canActivate: [UserRouteAccessService]
@@ -71,7 +71,7 @@ export const sharedAccountRoute: Routes = [
             sharedAccount: SharedAccountResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
             pageTitle: 'SharedAccounts'
         },
         canActivate: [UserRouteAccessService]
@@ -86,7 +86,7 @@ export const sharedAccountPopupRoute: Routes = [
             sharedAccount: SharedAccountResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
             pageTitle: 'SharedAccounts'
         },
         canActivate: [UserRouteAccessService],
