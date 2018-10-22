@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" automaticImage="JPEG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="com.ics499.coolpass.web.rest.AccountResource" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/AccountResource.java" binary="false" 
+    label="accountResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="236" y="0"/>    
+    <execution id="2">      
+      <position height="430" width="195" x="5" y="143"/>    
+    </execution>  
+  </object>  
+  <object id="9" language="java" name="com.ics499.coolpass.security.DomainUserDetailsService" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/security/DomainUserDetailsService.java" binary="false" 
+    label="domainUserDetailsService" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="377" y="0"/>    
+    <execution id="4">      
+      <position height="290" width="258" x="204" y="170"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="142" width="7" x="330" y="291"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="com.ics499.coolpass.repository.UserRepository" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/UserRepository.java" binary="false" 
+    label="userRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="27" width="0" x="0" y="211"/>    
+    </execution>  
+  </object>  
+  <object id="21" language="java" name="com.ics499.coolpass.domain.User" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/domain/User.java" binary="false" label="user" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="762" y="0"/>    
+    <execution id="15">      
+      <position height="27" width="188" x="675" y="318"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="27" width="7" x="766" y="349"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="27" width="188" x="675" y="379"/>    
+    </execution>  
+  </object>  
+  <object id="22" language="java" name="com.ics499.coolpass.security.PersistentTokenRememberMeServices" 
+    project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/security/PersistentTokenRememberMeServices.java" binary="false" 
+    label="persistentTokenRememberMeServices" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="927" y="0"/>    
+    <execution id="6">      
+      <position height="81" width="366" x="867" y="465"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="27" width="7" x="1047" y="497"/>    
+    </execution>  
+  </object>  
+  <object id="25" language="java" name="com.ics499.coolpass.repository.PersistenceAuditEventRepository" 
+    project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/PersistenceAuditEventRepository.java" binary="false" 
+    label="persistenceAuditEventRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="972" y="0"/>    
+    <execution id="24">      
+      <position height="27" width="320" x="1237" y="492"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="loadUserByUsername(java.lang.String):org.springframework.security.core.userdetails.UserDetails" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" 
+    operation="addCookie(com.ics499.coolpass.domain.PersistentToken,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" 
+    operation="loginSuccess(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.security.core.Authentication):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="10" operation="findOneWithAuthoritiesByLogin(java.lang.String):java.util.Optional&lt;User&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" 
+    operation="createSpringSecurityUser(java.lang.String,com.ics499.coolpass.domain.User):org.springframework.security.core.userdetails.User" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="getAuthorities():java.util.Set&lt;Authority&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="getLogin():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="getPassword():java.lang.String" asynchronous="false" x="347" y="354">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="23" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>
+</sequence-diagram>

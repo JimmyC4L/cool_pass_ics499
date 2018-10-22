@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" automaticImage="JPEG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="com.ics499.coolpass.web.rest.SharedAccountResource" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/SharedAccountResource.java" binary="false" 
+    label="sharedAccountResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="112" y="0"/>    
+    <execution id="2">      
+      <position height="135" width="241" x="5" y="135"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="266" width="241" x="5" y="593"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="81" width="241" x="5" y="269"/>    
+    </execution>  
+  </object>  
+  <object id="17" language="java" name="com.ics499.coolpass.service.SharedAccountService" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/service/SharedAccountService.java" binary="false" 
+    label="sharedAccountService" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="456" y="0"/>    
+    <execution id="4">      
+      <position height="81" width="224" x="250" y="162"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="539" width="224" x="250" y="347"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="81" width="7" x="359" y="674"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="27" width="0" x="0" y="620"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="27" width="224" x="250" y="296"/>    
+    </execution>  
+  </object>  
+  <object id="30" language="java" name="com.ics499.coolpass.domain.SharedAccount" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/domain/SharedAccount.java" binary="false" label="sharedAccount" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="581" y="0"/>    
+    <execution id="22">      
+      <position height="27" width="7" x="569" y="374"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="27" width="7" x="569" y="401"/>    
+    </execution>    
+    <execution id="26">      
+      <position height="81" width="7" x="572" y="428"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="27" width="188" x="699" y="766"/>    
+    </execution>  
+  </object>  
+  <object id="33" language="java" name="com.ics499.coolpass.repository.SharedAccountRepository" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/SharedAccountRepository.java" binary="false" 
+    label="sharedAccountRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="979" y="0"/>    
+    <execution id="19">      
+      <position height="27" width="253" x="670" y="189"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="27" width="253" x="670" y="701"/>    
+    </execution>  
+  </object>  
+  <object id="34" language="java" name="com.ics499.coolpass.repository.EnvironmentRepository" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/EnvironmentRepository.java" binary="false" 
+    label="environmentRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="1120" y="0"/>    
+    <execution id="32">      
+      <position height="27" width="232" x="927" y="455"/>    
+    </execution>  
+  </object>  
+  <object id="35" language="java" name="com.ics499.coolpass.web.rest.util.HeaderUtil" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/util/HeaderUtil.java" binary="false" 
+    label="&lt;static&gt;" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="27" width="0" x="0" y="805"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="findAll(org.springframework.data.domain.Pageable):org.springframework.data.domain.Page&lt;SharedAccount&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="save(com.ics499.coolpass.domain.SharedAccount):com.ics499.coolpass.domain.SharedAccount" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="save(com.ics499.coolpass.domain.SharedAccount):com.ics499.coolpass.domain.SharedAccount" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" 
+    operation="createEntityUpdateAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="15" operation="findOne(java.lang.Long):java.util.Optional&lt;SharedAccount&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="18" operation="findAll():java.lang.Iterable&lt;T&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="21" operation="setLogin(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="setPassword(java.lang.String):void" asynchronous="false" x="367" y="379">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="setEnvironment(com.ics499.coolpass.domain.Environment):void" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="27" 
+    operation="updateSharedAccount(com.ics499.coolpass.domain.SharedAccount):org.springframework.http.ResponseEntity&lt;SharedAccount&gt;" 
+    asynchronous="false" x="136" y="565">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="5"/>  
+  </message>  
+  <message id="28" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="31" operation="existsById(ID):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>
+</sequence-diagram>

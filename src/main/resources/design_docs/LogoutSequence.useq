@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" automaticImage="JPEG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="com.ics499.coolpass.web.rest.AccountResource" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/AccountResource.java" binary="false" 
+    label="accountResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="236" y="0"/>    
+    <execution id="2">      
+      <position height="189" width="195" x="5" y="143"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.ics499.coolpass.security.DomainUserDetailsService" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/security/DomainUserDetailsService.java" binary="false" 
+    label="domainUserDetailsService" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="377" y="0"/>    
+    <execution id="4">      
+      <position height="135" width="258" x="204" y="170"/>    
+    </execution>    
+    <execution id="8">      
+      <position height="27" width="7" x="330" y="322"/>    
+    </execution>  
+  </object>  
+  <object id="9" language="java" name="com.ics499.coolpass.security.PersistentTokenRememberMeServices" 
+    project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/security/PersistentTokenRememberMeServices.java" binary="false" 
+    label="persistentTokenRememberMeServices" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="927" y="0"/>    
+    <execution id="10">      
+      <position height="27" width="366" x="867" y="465"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="81" width="366" x="466" y="197"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="com.ics499.coolpass.repository.PersistenceAuditEventRepository" 
+    project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/PersistenceAuditEventRepository.java" binary="false" 
+    label="persistenceAuditEventRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="972" y="0"/>    
+    <execution id="12">      
+      <position height="27" width="320" x="836" y="224"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="loadUserByUsername(java.lang.String):org.springframework.security.core.userdetails.UserDetails" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="logout(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.security.core.Authentication):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="11" operation="deleteById(ID):void" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>
+</sequence-diagram>

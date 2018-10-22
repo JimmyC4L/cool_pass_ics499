@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="com.ics499.coolpass.web.rest.EnvironmentResource" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/EnvironmentResource.java" binary="false" 
+    label="environmentResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="312" y="0"/>    
+    <execution id="2">      
+      <position height="137" width="220" x="5" y="173"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="295" width="220" x="5" y="699"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="27" width="220" x="5" y="634"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="com.ics499.coolpass.service.EnvironmentService" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/service/EnvironmentService.java" binary="false" 
+    label="environmentService" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="492" y="0"/>    
+    <execution id="7">      
+      <position height="81" width="0" x="0" y="726"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="337" width="203" x="925" y="351"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="83" width="203" x="229" y="200"/>    
+    </execution>  
+  </object>  
+  <object id="28" language="java" name="com.ics499.coolpass.domain.Environment" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/domain/Environment.java" binary="false" label="result" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="27" width="0" x="0" y="843"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="27" width="188" x="1132" y="378"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="27" width="7" x="527" y="411"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="27" width="7" x="527" y="436"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="79" width="188" x="436" y="469"/>    
+    </execution>  
+  </object>  
+  <object id="31" language="java" name="com.ics499.coolpass.repository.EnvironmentRepository" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/EnvironmentRepository.java" binary="false" 
+    label="environmentRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="621" y="0"/>    
+    <execution id="15">      
+      <position height="27" width="232" x="628" y="753"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="27" width="232" x="628" y="229"/>    
+    </execution>  
+  </object>  
+  <object id="32" language="java" name="com.ics499.coolpass.repository.AuthorityRepository" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/AuthorityRepository.java" binary="false" 
+    label="authorityRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="1269" y="0"/>    
+    <execution id="30">      
+      <position height="27" width="205" x="1085" y="494"/>    
+    </execution>  
+  </object>  
+  <object id="33" language="java" name="com.ics499.coolpass.web.rest.util.HeaderUtil" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/util/HeaderUtil.java" binary="false" 
+    label="&lt;static&gt;" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="27" width="0" x="0" y="940"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="findAll(org.springframework.data.domain.Pageable):org.springframework.data.domain.Page&lt;Environment&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="save(com.ics499.coolpass.domain.Environment):com.ics499.coolpass.domain.Environment" 
+    asynchronous="false" x="110" y="693">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" 
+    operation="createEntityCreationAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="14" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="17" operation="Environment()" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="setServer(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="setName(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="setAuthority_name(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" 
+    operation="createEnvironment(com.ics499.coolpass.domain.Environment):org.springframework.http.ResponseEntity&lt;Environment&gt;" 
+    asynchronous="false" x="32" y="605">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="26" operation="findAll():java.lang.Iterable&lt;T&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="29" operation="existsById(ID):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>
+</sequence-diagram>

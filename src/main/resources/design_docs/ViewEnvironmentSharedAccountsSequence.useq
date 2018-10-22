@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" automaticImage="JPEG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="com.ics499.coolpass.web.rest.EnvironmentResource" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/EnvironmentResource.java" binary="false" 
+    label="environmentResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="225" y="0"/>    
+    <execution id="2">      
+      <position height="135" width="220" x="5" y="196"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="27" width="220" x="5" y="518"/>    
+    </execution>  
+  </object>  
+  <object id="6" language="java" name="com.ics499.coolpass.service.EnvironmentService" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/service/EnvironmentService.java" binary="false" 
+    label="environmentService" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="354" y="0"/>    
+    <execution id="4">      
+      <position height="81" width="203" x="229" y="223"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="27" width="0" x="0" y="557"/>    
+    </execution>  
+  </object>  
+  <object id="10" language="java" name="com.ics499.coolpass.repository.EnvironmentRepository" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/EnvironmentRepository.java" binary="false" 
+    label="environmentRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="807" y="0"/>    
+    <execution id="8">      
+      <position height="27" width="232" x="628" y="250"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="com.ics499.coolpass.web.rest.SharedAccountResource" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/SharedAccountResource.java" binary="false" 
+    label="sharedAccountResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="801" y="0"/>    
+    <execution id="12">      
+      <position height="135" width="241" x="672" y="310"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.ics499.coolpass.service.SharedAccountService" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/service/SharedAccountService.java" binary="false" 
+    label="sharedAccountService" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="980" y="0"/>    
+    <execution id="14">      
+      <position height="81" width="224" x="917" y="337"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="com.ics499.coolpass.repository.SharedAccountRepository" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/repository/SharedAccountRepository.java" binary="false" 
+    label="sharedAccountRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="1203" y="0"/>    
+    <execution id="17">      
+      <position height="27" width="253" x="1145" y="364"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="findAll():java.util.List&lt;Environment&gt;" asynchronous="false" x="112" y="183">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="7" operation="findAll():java.lang.Iterable&lt;T&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="13" operation="findAll():java.util.List&lt;SharedAccount&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="16" operation="findAll():java.lang.Iterable&lt;T&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>
+</sequence-diagram>

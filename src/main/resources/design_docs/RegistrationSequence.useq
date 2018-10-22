@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" automaticImage="JPEG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="com.ics499.coolpass.web.rest.AccountResource" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/web/rest/AccountResource.java" binary="false" 
+    label="accountResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="35" y="0"/>    
+    <execution id="2">      
+      <position height="1936" width="195" x="5" y="182"/>    
+    </execution>  
+  </object>  
+  <object id="7" language="java" name="com.ics499.coolpass.service.UserService" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/service/UserService.java" binary="false" label="userService" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="199" y="0"/>    
+    <execution id="4">      
+      <position height="1852" width="187" x="204" y="209"/>    
+    </execution>  
+  </object>  
+  <object id="70" language="java" name="com.ics499.coolpass.domain.User" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/domain/User.java" binary="false" label="user" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="27" width="0" x="0" y="236"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="27" width="0" x="0" y="290"/>    
+    </execution>    
+    <execution id="15">      
+      <position height="27" width="0" x="0" y="398"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="27" width="0" x="0" y="506"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="27" width="0" x="0" y="614"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="27" width="0" x="0" y="722"/>    
+    </execution>    
+    <execution id="31">      
+      <position height="27" width="0" x="0" y="874"/>    
+    </execution>    
+    <execution id="33">      
+      <position height="27" width="0" x="0" y="971"/>    
+    </execution>    
+    <execution id="41">      
+      <position height="27" width="0" x="0" y="1197"/>    
+    </execution>    
+    <execution id="43">      
+      <position height="27" width="0" x="0" y="1251"/>    
+    </execution>    
+    <execution id="47">      
+      <position height="27" width="0" x="0" y="1359"/>    
+    </execution>    
+    <execution id="51">      
+      <position height="27" width="0" x="0" y="1467"/>    
+    </execution>    
+    <execution id="67">      
+      <position height="27" width="0" x="0" y="1943"/>    
+    </execution>    
+    <execution id="71">      
+      <position height="27" width="0" x="0" y="2087"/>    
+    </execution>    
+    <execution id="72">      
+      <position height="27" width="0" x="0" y="2262"/>    
+    </execution>    
+    <execution id="73">      
+      <position height="27" width="0" x="0" y="3314"/>    
+    </execution>  
+  </object>  
+  <object id="74" language="java" name="com.ics499.coolpass.service.dto.UserDTO" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/service/dto/UserDTO.java" binary="false" label="userDTO" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="27" width="0" x="0" y="344"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="27" width="0" x="0" y="452"/>    
+    </execution>    
+    <execution id="21">      
+      <position height="27" width="0" x="0" y="560"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="27" width="0" x="0" y="668"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="27" width="0" x="0" y="776"/>    
+    </execution>    
+    <execution id="35">      
+      <position height="27" width="0" x="0" y="1025"/>    
+    </execution>    
+    <execution id="53">      
+      <position height="27" width="0" x="0" y="1565"/>    
+    </execution>  
+  </object>  
+  <object id="75" language="java" name="org.springframework.security.crypto.password.PasswordEncoder" 
+    project="cool-pass" 
+    file="C:/Users/ndenker/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.0.8.RELEASE/32a39026edcb6b7cd4567df2c75bd561d876f515/spring-security-core-5.0.8.RELEASE.jar" 
+    binary="true" label="passwordEncoder" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="37">      
+      <position height="27" width="0" x="0" y="1089"/>    
+    </execution>  
+  </object>  
+  <object id="76" language="java" name="com.ics499.coolpass.service.util.RandomUtil" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/service/util/RandomUtil.java" binary="false" 
+    label="&lt;static&gt;" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="39">      
+      <position height="27" width="0" x="0" y="1143"/>    
+    </execution>    
+    <execution id="45">      
+      <position height="27" width="0" x="0" y="1305"/>    
+    </execution>  
+  </object>  
+  <object id="77" language="java" name="java.time.Instant" project="cool-pass" 
+    file="C:/Program Files/Java/jre1.8.0_131/lib/rt.jar" binary="true" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="49">      
+      <position height="27" width="0" x="0" y="1413"/>    
+    </execution>  
+  </object>  
+  <object id="78" language="java" name="java.util.Set" project="cool-pass" 
+    file="C:/Program Files/Java/jre1.8.0_131/lib/rt.jar" binary="true" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="55">      
+      <position height="27" width="0" x="0" y="1619"/>    
+    </execution>    
+    <execution id="57">      
+      <position height="27" width="0" x="0" y="1673"/>    
+    </execution>    
+    <execution id="59">      
+      <position height="27" width="0" x="0" y="1727"/>    
+    </execution>    
+    <execution id="61">      
+      <position height="27" width="0" x="0" y="1781"/>    
+    </execution>    
+    <execution id="65">      
+      <position height="27" width="0" x="0" y="1889"/>    
+    </execution>  
+  </object>  
+  <object id="79" language="java" name="java.util.stream.Collectors" project="cool-pass" 
+    file="C:/Program Files/Java/jre1.8.0_131/lib/rt.jar" binary="true" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="63">      
+      <position height="27" width="0" x="0" y="1835"/>    
+    </execution>  
+  </object>  
+  <object id="80" language="java" name="org.springframework.data.repository.CrudRepository" project="cool-pass" 
+    file="C:/Users/ndenker/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/2.0.10.RELEASE/64d4e58a2b16b9446d51a2650058d821a5bce98d/spring-data-commons-2.0.10.RELEASE.jar" 
+    binary="true" label="userRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="69">      
+      <position height="27" width="0" x="0" y="2007"/>    
+    </execution>  
+  </object>  
+  <object id="81" language="java" name="com.ics499.coolpass.service.MailService" project="cool-pass" 
+    file="/cool-pass/src/main/java/com/ics499/coolpass/service/MailService.java" binary="false" label="mailService" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="301" y="0"/>    
+    <execution id="82">      
+      <position height="1335" width="187" x="1863" y="2060"/>    
+    </execution>    
+    <execution id="85">      
+      <position height="1200" width="0" x="0" y="2168"/>    
+    </execution>    
+    <execution id="104">      
+      <position height="580" width="0" x="0" y="2721"/>    
+    </execution>    
+    <execution id="6">      
+      <position height="27" width="187" x="1863" y="2064"/>    
+    </execution>  
+  </object>  
+  <object id="126" language="java" name="org.springframework.mail.javamail.JavaMailSender" project="cool-pass" 
+    file="C:/Users/ndenker/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/5.0.9.RELEASE/70513a5860ced0660834bc590b435fc7b73902ea/spring-context-support-5.0.9.RELEASE.jar" 
+    binary="true" label="javaMailSender" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="107">      
+      <position height="27" width="0" x="0" y="2761"/>    
+    </execution>    
+    <execution id="125">      
+      <position height="27" width="0" x="0" y="3247"/>    
+    </execution>  
+  </object>  
+  <object id="127" language="java" name="org.springframework.mail.javamail.MimeMessageHelper" project="cool-pass" 
+    file="C:/Users/ndenker/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/5.0.9.RELEASE/70513a5860ced0660834bc590b435fc7b73902ea/spring-context-support-5.0.9.RELEASE.jar" 
+    binary="true" label="message" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="109">      
+      <position height="27" width="0" x="0" y="2815"/>    
+    </execution>    
+    <execution id="113">      
+      <position height="27" width="0" x="0" y="2923"/>    
+    </execution>    
+    <execution id="115">      
+      <position height="27" width="0" x="0" y="2977"/>    
+    </execution>    
+    <execution id="121">      
+      <position height="27" width="0" x="0" y="3139"/>    
+    </execution>    
+    <execution id="123">      
+      <position height="27" width="0" x="0" y="3193"/>    
+    </execution>  
+  </object>  
+  <object id="128" language="java" name="java.nio.charset.Charset" project="cool-pass" 
+    file="C:/Program Files/Java/jre1.8.0_131/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="111">      
+      <position height="27" width="0" x="0" y="2869"/>    
+    </execution>  
+  </object>  
+  <object id="129" language="java" name="io.github.jhipster.config.JHipsterProperties.Mail" project="cool-pass" 
+    file="C:/Users/ndenker/.gradle/caches/modules-2/files-2.1/io.github.jhipster/jhipster-framework/2.0.22/7dc5eb88dc4e9832dac1e3e150823ce6a1854977/jhipster-framework-2.0.22.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="119">      
+      <position height="27" width="0" x="0" y="3085"/>    
+    </execution>  
+  </object>  
+  <object id="130" language="java" name="java.util.Locale" project="cool-pass" 
+    file="C:/Program Files/Java/jre1.8.0_131/lib/rt.jar" binary="true" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="87">      
+      <position height="27" width="0" x="0" y="2208"/>    
+    </execution>  
+  </object>  
+  <object id="131" language="java" name="org.thymeleaf.context.Context" project="cool-pass" 
+    file="C:/Users/ndenker/.m2/repository/org/thymeleaf/thymeleaf/3.0.9.RELEASE/thymeleaf-3.0.9.RELEASE.jar" 
+    binary="true" label="context" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="90">      
+      <position height="27" width="0" x="0" y="2316"/>    
+    </execution>    
+    <execution id="92">      
+      <position height="27" width="0" x="0" y="2370"/>    
+    </execution>    
+    <execution id="94">      
+      <position height="27" width="0" x="0" y="2424"/>    
+    </execution>  
+  </object>  
+  <object id="132" language="java" name="io.github.jhipster.config.JHipsterProperties" project="cool-pass" 
+    file="C:/Users/ndenker/.gradle/caches/modules-2/files-2.1/io.github.jhipster/jhipster-framework/2.0.22/7dc5eb88dc4e9832dac1e3e150823ce6a1854977/jhipster-framework-2.0.22.jar" 
+    binary="true" label="jHipsterProperties" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="96">      
+      <position height="27" width="0" x="0" y="2478"/>    
+    </execution>    
+    <execution id="117">      
+      <position height="27" width="0" x="0" y="3031"/>    
+    </execution>  
+  </object>  
+  <object id="133" language="java" name="io.github.jhipster.config.JHipsterProperties.Mail" project="cool-pass" 
+    file="C:/Users/ndenker/.gradle/caches/modules-2/files-2.1/io.github.jhipster/jhipster-framework/2.0.22/7dc5eb88dc4e9832dac1e3e150823ce6a1854977/jhipster-framework-2.0.22.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="98">      
+      <position height="27" width="0" x="0" y="2532"/>    
+    </execution>  
+  </object>  
+  <object id="134" language="java" name="org.thymeleaf.TemplateEngine" project="cool-pass" 
+    file="C:/Users/ndenker/.m2/repository/org/thymeleaf/thymeleaf/3.0.9.RELEASE/thymeleaf-3.0.9.RELEASE.jar" 
+    binary="true" label="templateEngine" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="100">      
+      <position height="27" width="0" x="0" y="2586"/>    
+    </execution>  
+  </object>  
+  <object id="135" language="java" name="org.springframework.context.MessageSource" project="cool-pass" 
+    file="C:/Users/ndenker/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/5.0.9.RELEASE/2501e55acb6c2e84667cda3f845d1d00a0dc4e05/spring-context-5.0.9.RELEASE.jar" 
+    binary="true" label="messageSource" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="102">      
+      <position height="27" width="0" x="0" y="2640"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="136" interaction-operator="ALT">    
+    <interaction-operand id="137" constraint="userDTO.getLangKey() == null">      
+      <fragment refId="30"/>    
+    </interaction-operand>    
+    <interaction-operand id="138" constraint="else">      
+      <fragment refId="32"/>      
+      <fragment refId="34"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <combined-fragment id="139" interaction-operator="OPT">    
+    <interaction-operand id="140" constraint="userDTO.getAuthorities() != null">      
+      <fragment refId="60"/>      
+      <fragment refId="64"/>      
+      <fragment refId="54"/>      
+      <fragment refId="66"/>      
+      <fragment refId="52"/>      
+      <fragment refId="62"/>      
+      <fragment refId="58"/>      
+      <fragment refId="56"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <message id="3" 
+    operation="registerUser(com.ics499.coolpass.service.dto.UserDTO,java.lang.String):com.ics499.coolpass.domain.User" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="sendActivationEmail(com.ics499.coolpass.domain.User):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="8" operation="User()" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="setLogin(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="getLogin():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="setFirstName(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="getFirstName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="setLastName(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="getLastName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="setEmail(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="getEmail():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="setImageUrl(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28" operation="getImageUrl():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="setLangKey(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="32" operation="setLangKey(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="33"/>  
+  </message>  
+  <message id="34" operation="getLangKey():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="35"/>  
+  </message>  
+  <message id="36" operation="encode(java.lang.CharSequence):java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="37"/>  
+  </message>  
+  <message id="38" operation="generatePassword():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>  
+  <message id="40" operation="setPassword(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="41"/>  
+  </message>  
+  <message id="42" operation="setResetKey(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="43"/>  
+  </message>  
+  <message id="44" operation="generateResetKey():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="45"/>  
+  </message>  
+  <message id="46" operation="setResetDate(java.time.Instant):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="47"/>  
+  </message>  
+  <message id="48" operation="now():java.time.Instant" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="49"/>  
+  </message>  
+  <message id="50" operation="setActivated(boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="51"/>  
+  </message>  
+  <message id="52" operation="getAuthorities():java.util.Set&lt;String&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="53"/>  
+  </message>  
+  <message id="54" operation="stream():java.util.stream.Stream&lt;E&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="55"/>  
+  </message>  
+  <message id="56" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="57"/>  
+  </message>  
+  <message id="58" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="59"/>  
+  </message>  
+  <message id="60" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="61"/>  
+  </message>  
+  <message id="62" operation="toSet():java.util.stream.Collector&lt;T,?,java.util.Set&lt;T&gt;&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="63"/>  
+  </message>  
+  <message id="64" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="65"/>  
+  </message>  
+  <message id="66" operation="setAuthorities(java.util.Set&lt;com.ics499.coolpass.domain.Authority&gt;):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="67"/>  
+  </message>  
+  <message id="68" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="69"/>  
+  </message>  
+  <message id="83" operation="getEmail():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="71"/>  
+  </message>  
+  <message id="84" 
+    operation="sendEmailFromTemplate(com.ics499.coolpass.domain.User,java.lang.String,java.lang.String):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="82"/>    
+    <end type="TARGET" refId="85"/>  
+  </message>  
+  <message id="86" operation="forLanguageTag(java.lang.String):java.util.Locale" asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="87"/>  
+  </message>  
+  <message id="88" operation="getLangKey():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="72"/>  
+  </message>  
+  <message id="89" operation="Context(java.util.Locale)" asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="90"/>  
+  </message>  
+  <message id="91" operation="setVariable(java.lang.String,java.lang.Object):void" asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="92"/>  
+  </message>  
+  <message id="93" operation="setVariable(java.lang.String,java.lang.Object):void" asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="94"/>  
+  </message>  
+  <message id="95" operation="getMail():io.github.jhipster.config.JHipsterProperties.Mail" asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="96"/>  
+  </message>  
+  <message id="97" operation="getBaseUrl():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="98"/>  
+  </message>  
+  <message id="99" operation="process(java.lang.String,org.thymeleaf.context.IContext):java.lang.String" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="100"/>  
+  </message>  
+  <message id="101" operation="getMessage(java.lang.String,java.lang.Object[],java.util.Locale):java.lang.String" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="102"/>  
+  </message>  
+  <message id="103" operation="sendEmail(java.lang.String,java.lang.String,java.lang.String,boolean,boolean):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="104"/>  
+  </message>  
+  <message id="105" operation="getEmail():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="85"/>    
+    <end type="TARGET" refId="73"/>  
+  </message>  
+  <message id="106" operation="createMimeMessage():javax.mail.internet.MimeMessage" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="107"/>  
+  </message>  
+  <message id="108" operation="MimeMessageHelper(javax.mail.internet.MimeMessage,boolean,java.lang.String)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="109"/>  
+  </message>  
+  <message id="110" operation="name():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="111"/>  
+  </message>  
+  <message id="112" operation="setTo(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="113"/>  
+  </message>  
+  <message id="114" operation="setFrom(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="115"/>  
+  </message>  
+  <message id="116" operation="getMail():io.github.jhipster.config.JHipsterProperties.Mail" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="117"/>  
+  </message>  
+  <message id="118" operation="getFrom():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="119"/>  
+  </message>  
+  <message id="120" operation="setSubject(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="121"/>  
+  </message>  
+  <message id="122" operation="setText(java.lang.String,boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="123"/>  
+  </message>  
+  <message id="124" operation="send(javax.mail.internet.MimeMessage):void" asynchronous="false">    
+    <end type="SOURCE" refId="104"/>    
+    <end type="TARGET" refId="125"/>  
+  </message>
+</sequence-diagram>
