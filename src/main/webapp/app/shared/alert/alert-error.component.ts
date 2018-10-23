@@ -71,6 +71,10 @@ export class JhiAlertErrorComponent implements OnDestroy {
                     this.addErrorAlert('Not found', 'error.url.not.found');
                     break;
 
+                case 500:
+                    this.addErrorAlert('Remove shared accounts before deletion', 'error.http.500');
+                    break;
+
                 default:
                     if (httpErrorResponse.error !== '' && httpErrorResponse.error.message) {
                         this.addErrorAlert(httpErrorResponse.error.message);
