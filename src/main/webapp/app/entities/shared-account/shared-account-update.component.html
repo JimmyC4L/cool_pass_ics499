@@ -23,14 +23,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-control-label" for="field_environment">Environment</label>
+                            <label class="form-control-label" for="field_environment">Environment and Server</label>
                             <select class="form-control" id="field_environment" name="environment"
                                     [(ngModel)]="sharedAccount.environment" required>
                                 <option *ngIf="!editForm.value.environment" [ngValue]="null" selected></option>
+                                <option disabled>Environment&nbsp; Server</option>
                                 <option
                                     [ngValue]="environmentOption.id === sharedAccount.environment?.id ? sharedAccount.environment : environmentOption"
                                     *ngFor="let environmentOption of environments; trackBy: trackEnvironmentById">
-                                    {{environmentOption.id}}
+                                    {{environmentOption.name}}&nbsp;&nbsp;	&nbsp;	&nbsp;{{environmentOption.server}}
                                 </option>
                             </select>
                         </div>
