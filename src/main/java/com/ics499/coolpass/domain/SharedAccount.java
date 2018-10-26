@@ -1,6 +1,7 @@
 package com.ics499.coolpass.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.opencsv.bean.CsvBindByName;
 import io.swagger.annotations.ApiModel;
 
 import javax.persistence.*;
@@ -30,6 +31,7 @@ public class SharedAccount implements Serializable {
     private String login;
 
     @Column(name = "jhi_password")
+    @CsvBindByName(column = "jhi_password")
     private String password;
 
     @ManyToOne(optional = false)
