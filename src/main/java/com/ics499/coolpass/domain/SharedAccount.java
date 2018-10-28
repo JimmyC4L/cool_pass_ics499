@@ -28,6 +28,7 @@ public class SharedAccount implements Serializable {
     private Long id;
 
     @Column(name = "login")
+    @CsvBindByName(column = "login")
     private String login;
 
     @Column(name = "jhi_password")
