@@ -30,7 +30,7 @@ export const environmentRoute: Routes = [
         path: 'environment',
         component: EnvironmentComponent,
         data: {
-            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Environments'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const environmentRoute: Routes = [
             environment: EnvironmentResolve
         },
         data: {
-            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Environments'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const environmentRoute: Routes = [
             environment: EnvironmentResolve
         },
         data: {
-            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Environments'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const environmentRoute: Routes = [
             environment: EnvironmentResolve
         },
         data: {
-            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Environments'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const environmentPopupRoute: Routes = [
             environment: EnvironmentResolve
         },
         data: {
-            authorities: ['ROLE_USER','ROLE_BUSINESS_OWNER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Environments'
         },
         canActivate: [UserRouteAccessService],

@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 import { CoolPassSharedModule } from 'app/shared';
 import {
     SharedAccountComponent,
@@ -8,24 +8,28 @@ import {
     SharedAccountUpdateComponent,
     SharedAccountDeletePopupComponent,
     SharedAccountDeleteDialogComponent,
+    SharedAccountImportComponent,
     sharedAccountRoute,
-    sharedAccountPopupRoute
+    sharedAccountPopupRoute,
+    SharedAccountService
 } from './';
 
 const ENTITY_STATES = [...sharedAccountRoute, ...sharedAccountPopupRoute];
 
 @NgModule({
-    imports: [CoolPassSharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [CoolPassSharedModule, RouterModule.forChild(ENTITY_STATES), HttpClientModule],
     declarations: [
         SharedAccountComponent,
         SharedAccountDetailComponent,
         SharedAccountUpdateComponent,
+        SharedAccountImportComponent,
         SharedAccountDeleteDialogComponent,
         SharedAccountDeletePopupComponent
     ],
     entryComponents: [
         SharedAccountComponent,
         SharedAccountUpdateComponent,
+        SharedAccountImportComponent,
         SharedAccountDeleteDialogComponent,
         SharedAccountDeletePopupComponent
     ],

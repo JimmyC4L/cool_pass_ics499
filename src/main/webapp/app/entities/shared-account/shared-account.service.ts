@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ISharedAccount } from 'app/shared/model/shared-account.model';
-import {IEnvironment} from "app/shared/model/environment.model";
+import { IEnvironment } from 'app/shared/model/environment.model';
 
 type EntityResponseType = HttpResponse<ISharedAccount>;
 type EntityArrayResponseType = HttpResponse<ISharedAccount[]>;
