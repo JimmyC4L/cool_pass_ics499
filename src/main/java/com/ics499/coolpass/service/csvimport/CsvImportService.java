@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -33,7 +34,7 @@ public class CsvImportService {
         this.sharedAccountService = sharedAccountService;
     }
 
-    public void importCsv() throws IOException {
+    public void importCsv(File file ) throws IOException {
             Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
 
             List<SharedAccountCsv> sharedAccountsCsv = new CsvToBeanBuilder(reader)
