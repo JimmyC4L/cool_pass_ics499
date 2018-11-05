@@ -10,14 +10,14 @@ import {
     SharedAccountDeleteDialogComponent,
     SharedAccountImportComponent,
     sharedAccountRoute,
-    sharedAccountPopupRoute,
-    SharedAccountService
+    sharedAccountPopupRoute
 } from './';
+import {FileUploadModule} from "ng2-file-upload";
 
 const ENTITY_STATES = [...sharedAccountRoute, ...sharedAccountPopupRoute];
 
 @NgModule({
-    imports: [CoolPassSharedModule, RouterModule.forChild(ENTITY_STATES), HttpClientModule],
+    imports: [CoolPassSharedModule, RouterModule.forChild(ENTITY_STATES), HttpClientModule, FileUploadModule],
     declarations: [
         SharedAccountComponent,
         SharedAccountDetailComponent,

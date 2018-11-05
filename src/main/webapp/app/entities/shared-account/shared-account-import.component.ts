@@ -1,90 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { JhiAlertService } from 'ng-jhipster';
+import {Component, OnInit} from '@angular/core';
 
-import { ISharedAccount } from 'app/shared/model/shared-account.model';
-import { IEnvironment } from 'app/shared/model/environment.model';
-import { EnvironmentService } from 'app/entities/environment';
-import { SharedAccountService } from './shared-account.service';
-import { UploadFileService } from './upload-file.service';
+import {IEnvironment} from 'app/shared/model/environment.model';
+import {FileUploader} from "ng2-file-upload";
+import {SERVER_API_URL} from "app/app.constants";
 
 @Component({
     selector: 'jhi-shared-account-import',
     templateUrl: './shared-account-import.component.html'
 })
 export class SharedAccountImportComponent implements OnInit {
-    private _sharedAccount: ISharedAccount;
     isSaving: boolean;
 
+    private resourceUrl = SERVER_API_URL + 'api/upload-file';
     environments: IEnvironment[];
-    fileToUpload: any = null;
 
-    constructor(private uploadFileService: UploadFileService) {}
+    public uploader: FileUploader = new FileUploader({url: this.resourceUrl, itemAlias: 'file'});
+
+    constructor() {
+    }
 
     ngOnInit() {
-        // this.isSaving = false;
-        // this.activatedRoute.data.subscribe(({ sharedAccount }) => {
-        //     this.sharedAccount = sharedAccount;
-        // });
-        // this.environmentService.query().subscribe(
-        //     (res: HttpResponse<IEnvironment[]>) => {
-        //         this.environments = res.body;
-        //     },
-        //     (res: HttpErrorResponse) => this.onError(res.message)
-        // );
+        this.uploader.onAfterAddingFile = (file) => {
+            file.withCredentials = false;
+        };
+        this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+            console.log('ImageUpload:uploaded:', item, status, response);
+            alert('File uploaded successfully');
+        };
     }
-    handleFileInput(files: any) {
-        this.fileToUpload = files;
-    }
-    // uploadFileToActivity() {
-    //     this.fileUploadService.postFile(this.fileToUpload).subscribe(data => {
-    //         // do something, if upload success
-    //     }, error => {
-    //         console.log(error);
-    //     });
-    // }
 
     previousState() {
         window.history.back();
     }
-
-    save() {
-        // Instantiate a FormData to store form fields and encode the file
-        let body = new FormData();
-        // Add file content to prepare the request
-        body.append("file", this.fileToUpload);
-        this.uploadFileService.postFile(body).subscribe(
-            data => {
-                console.log('Successful upload');
-            },
-            error => {
-                console.log(error);
-            }
-        );
-        // this.isSaving = true;
-        // if (this.sharedAccount.id !== undefined) {
-        //     this.subscribeToSaveResponse(this.sharedAccountService.update(this.sharedAccount));
-        // } else {
-        //     this.subscribeToSaveResponse(this.sharedAccountService.create(this.sharedAccount));
-        // }
-    }
-
-    // private subscribeToSaveResponse(result: Observable<HttpResponse<ISharedAccount>>) {
-    //     result.subscribe((res: HttpResponse<ISharedAccount>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
-    // }
-    //
-    // private onSaveSuccess() {
-    //     this.isSaving = false;
-    //     this.previousState();
-    // }
-    //
-    // private onSaveError() {
-    //     this.isSaving = false;
-    // }
-    //
-    // private onError(errorMessage: string) {
-    //     this.jhiAlertService.error(errorMessage, null, null);
-    // }
 }
+

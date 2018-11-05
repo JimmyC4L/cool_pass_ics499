@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +30,8 @@ public class CsvImportService {
     }
 
     public void importCsv(MultipartFile  multipartFile ) throws IOException {
-
-            Reader reader = new FileReader(convertMultiPartToFile(multipartFile));
+            File file = convertMultiPartToFile(multipartFile);
+            Reader reader = new FileReader(file);
 
             List<SharedAccountCsv> sharedAccountsCsv = new CsvToBeanBuilder(reader)
                 .withType(SharedAccountCsv.class).build().parse();
@@ -50,6 +48,7 @@ public class CsvImportService {
         for(SharedAccount sharedAccount: sharedAccounts){
             sharedAccountService.save(sharedAccount);
         }
+        file.delete();
     }
 
     private Environment getEnvironment(Long environmentId){
@@ -61,7 +60,8 @@ public class CsvImportService {
     }
 
     private File convertMultiPartToFile(MultipartFile file) throws IOException {
-        File convFile = new File(file.getOriginalFilename());
+//        File convFile = new File(file.getOriginalFilename());
+        File convFile = File.createTempFile(file.getOriginalFilename(), "temp");
         FileOutputStream fos = new FileOutputStream(convFile);
         fos.write(file.getBytes());
         fos.close();

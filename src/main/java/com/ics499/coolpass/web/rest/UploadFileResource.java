@@ -38,16 +38,4 @@ public class UploadFileResource {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(message);
         }
     }
-//    @Consumes(MediaType.MULTIPART_FORM_DATA)
-//
-//    public ResponseEntity<String> uploadFile(@FormDataParam("file") InputStream uploadInputStream, @FormDataParam("file") FormDataContentDisposition fileDetail throws URISyntaxException {
-//        log.debug("REST request to to upload");
-//        if (saveFileOnServer(uploadedInputStream, fileDetail) == false) {
-//            throw new BadRequestAlertException("Unable to upload file");
-//        }
-//
-//        return ResponseEntity.ok("Upload Successful");
-//    }
-
-
 }
