@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ISharedAccount } from 'app/shared/model/shared-account.model';
-import {IEnvironment} from "app/shared/model/environment.model";
+import { IEnvironment } from 'app/shared/model/environment.model';
 
 type EntityResponseType = HttpResponse<ISharedAccount>;
 type EntityArrayResponseType = HttpResponse<ISharedAccount[]>;
@@ -36,6 +36,10 @@ export class SharedAccountService {
     findAll(): Observable<EntityArrayResponseType> {
         return this.http.get<IEnvironment[]>(this.resourceUrl + '-no-page', { observe: 'response' });
     }
+
+    // findWhere(sharedAccount: ISharedAccount): Observable<EntityArrayResponseType> {
+    //     return this.http.get<ISharedAccount>(this.resourceUrl, sharedAccount, { observe: 'response' });
+    // }
 
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });

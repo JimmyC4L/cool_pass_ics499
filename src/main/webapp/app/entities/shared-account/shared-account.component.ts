@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
@@ -49,6 +50,19 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
+        this.sharedAccountService
+            .query({
+                page: this.page - 1,
+                size: this.itemsPerPage,
+                sort: this.sort()
+            })
+            .subscribe(
+                (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+    }
+
+    loadWhere() {
         this.sharedAccountService
             .query({
                 page: this.page - 1,

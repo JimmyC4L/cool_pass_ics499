@@ -12,7 +12,36 @@
         </h2>
         <jhi-alert></jhi-alert>
         <br/>
+
         <div class="table-responsive" *ngIf="sharedAccounts">
+            <form name="searchForm" role="form" novalidate (ngSubmit)="loadWhere()" #editForm="ngForm">
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" for="field_login">Login</label>-->
+                    <!--<input type="text" class="form-control" name="login" id="field_login"-->
+                           <!--[(ngModel)]="sharedAccount.login"/>-->
+                <!--</div>-->
+                <div class="form-group">
+                    <label class="form-control-label" for="field_environment">EnvID</label>
+                    <input type="text" class="form-control" name="environment" id="field_environment"
+                           [(ngModel)]="sharedAccount.environment"/>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" for="field_environment">Environment</label>-->
+                    <!--<select class="form-control" id="field_environment" name="environment">-->
+                        <!--<option *ngIf="!editForm.value.environment" [ngValue]="null" selected></option>-->
+                        <!--<option-->
+                            <!--*ngFor="let environmentOption of environments; trackBy: trackEnvironmentById">-->
+                            <!--{{environmentOption.name}}-->
+                        <!--</option>-->
+                    <!--</select>-->
+                    <button type="submit" id="search-entity"
+                            class="btn btn-primary">
+                        <fa-icon [icon]="'search'"></fa-icon><span>Search</span>
+                    </button>
+
+            </form>
+        </div>
             <table class="table table-striped">
                 <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">

@@ -31,6 +31,7 @@ public interface SharedAccountService {
 
     List<SharedAccount> findAll();
 
+    List<SharedAccount> findWhere(SharedAccount sharedAccount);
 
     /**
      * Get the "id" sharedAccount.

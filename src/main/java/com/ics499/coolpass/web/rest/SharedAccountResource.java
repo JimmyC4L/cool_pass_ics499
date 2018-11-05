@@ -1,6 +1,7 @@
 package com.ics499.coolpass.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.ics499.coolpass.domain.Environment;
 import com.ics499.coolpass.domain.SharedAccount;
 import com.ics499.coolpass.service.SharedAccountService;
 import com.ics499.coolpass.web.rest.errors.BadRequestAlertException;
@@ -90,6 +91,14 @@ public class SharedAccountResource {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
+
+    public ResponseEntity<List<SharedAccount>> getSomeEnvironments(Environment environment){
+        log.debug("REST request to get some of Environments");
+        SharedAccount sh = new SharedAccount();
+        sh.environment(environment);
+        List<SharedAccount> data = sharedAccountService.findWhere(sh);
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
     /**
      * GET  /shared-accounts : get all the sharedAccounts.
      *
