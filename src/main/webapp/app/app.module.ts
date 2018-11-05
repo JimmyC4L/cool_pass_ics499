@@ -25,6 +25,7 @@ import { WorkspaceEnvironmentComponent } from 'app/layouts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule, MatToolbarModule} from '@angular/material';
 import {TableComponent} from 'app/layouts/workspace-environment/table.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -40,6 +41,7 @@ import {TableComponent} from 'app/layouts/workspace-environment/table.component'
         CoolPassHomeModule,
         CoolPassAccountModule,
         CoolPassEntityModule,
+        FormsModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, WorkspaceEnvironmentComponent, TableComponent],
