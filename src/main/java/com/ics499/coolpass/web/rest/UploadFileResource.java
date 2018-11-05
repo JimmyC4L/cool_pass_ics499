@@ -1,17 +1,12 @@
 package com.ics499.coolpass.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-
 import com.ics499.coolpass.service.csvimport.CsvImportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-
-import java.io.File;
-import java.io.IOException;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * REST controller for managing UploadFile.
@@ -23,26 +18,25 @@ public class UploadFileResource {
     @Autowired
     CsvImportService csvImportService;
 
-
     /**
      * POST  /upload-file : Upload a file.
      *
      *
      * @return the ResponseEntity with status 201 (Created) and with body the new sharedAccount, or with status 400 (Bad Request) if the sharedAccount has already an ID
      */
-    @PostMapping("/upload-file")
+    @RequestMapping(value ="/upload-file", method = RequestMethod.POST, headers = "content-type=multipart/form-data")
     @ResponseBody
     public ResponseEntity<String> saveUserDataAndFile(
-        @RequestParam("file") File file) {
+        @RequestParam(value = "file" ) MultipartFile file) {
         String message;
-            try {
-                csvImportService.importCsv(file);
-                message = "You successfully uploaded " + file.getName() + "!";
-                return ResponseEntity.status(HttpStatus.OK).body(message);
-            } catch (IOException e) {
-                message = "FAIL to upload " + file.getName() + "!";
-                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(message);
-            }
+        try {
+            message = "You successfully uploaded " + file.getOriginalFilename() + "!";
+            csvImportService.importCsv(file);
+            return ResponseEntity.status(HttpStatus.OK).body(message);
+        } catch (Exception e) {
+            message = "FAIL to upload " + file.getOriginalFilename() + "!";
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(message);
+        }
     }
 //    @Consumes(MediaType.MULTIPART_FORM_DATA)
 //

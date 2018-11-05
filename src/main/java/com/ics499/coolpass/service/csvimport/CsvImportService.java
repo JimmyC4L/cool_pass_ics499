@@ -8,10 +8,9 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -26,16 +25,15 @@ public class CsvImportService {
     private final
     SharedAccountService sharedAccountService;
 
-    private static final String SAMPLE_CSV_FILE_PATH = "D:\\JHipster\\ICS499_cool_pass\\src\\main\\resources\\config\\liquibase\\sample_shared_account.csv";
-
     @Autowired
     public CsvImportService(EnvironmentService environmentService, SharedAccountService sharedAccountService) {
         this.environmentService = environmentService;
         this.sharedAccountService = sharedAccountService;
     }
 
-    public void importCsv(File file ) throws IOException {
-            Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
+    public void importCsv(MultipartFile  multipartFile ) throws IOException {
+
+            Reader reader = new FileReader(convertMultiPartToFile(multipartFile));
 
             List<SharedAccountCsv> sharedAccountsCsv = new CsvToBeanBuilder(reader)
                 .withType(SharedAccountCsv.class).build().parse();
@@ -60,5 +58,13 @@ public class CsvImportService {
         } else {
             throw new NullPointerException("SharedAccount Environment does not exist in database");
         }
+    }
+
+    private File convertMultiPartToFile(MultipartFile file) throws IOException {
+        File convFile = new File(file.getOriginalFilename());
+        FileOutputStream fos = new FileOutputStream(convFile);
+        fos.write(file.getBytes());
+        fos.close();
+        return convFile;
     }
 }

@@ -19,7 +19,7 @@ export class SharedAccountImportComponent implements OnInit {
     isSaving: boolean;
 
     environments: IEnvironment[];
-    fileToUpload: File = null;
+    fileToUpload: any = null;
 
     constructor(private uploadFileService: UploadFileService) {}
 
@@ -35,8 +35,8 @@ export class SharedAccountImportComponent implements OnInit {
         //     (res: HttpErrorResponse) => this.onError(res.message)
         // );
     }
-    handleFileInput(files: FileList) {
-        this.fileToUpload = files.item(0);
+    handleFileInput(files: any) {
+        this.fileToUpload = files;
     }
     // uploadFileToActivity() {
     //     this.fileUploadService.postFile(this.fileToUpload).subscribe(data => {
@@ -51,7 +51,11 @@ export class SharedAccountImportComponent implements OnInit {
     }
 
     save() {
-        this.uploadFileService.postFile(this.fileToUpload).subscribe(
+        // Instantiate a FormData to store form fields and encode the file
+        let body = new FormData();
+        // Add file content to prepare the request
+        body.append("file", this.fileToUpload);
+        this.uploadFileService.postFile(body).subscribe(
             data => {
                 console.log('Successful upload');
             },

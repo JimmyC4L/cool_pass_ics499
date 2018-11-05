@@ -11,11 +11,12 @@ export class UploadFileService {
 
     constructor(private http: HttpClient) {}
 
-    postFile(fileToUpload: File): Observable<Object> {
+    postFile(formData: FormData): Observable<Object> {
         // This endpoint needs to be defined as a rest api that can save a file to disk
         // const endpoint = this.resourceUrl;
         // const formData: FormData = new FormData();
         // formData.append('fileKey', fileToUpload, fileToUpload.name);
-        return this.http.post(this.resourceUrl, fileToUpload);
+        debugger;
+        return this.http.post(this.resourceUrl, formData);
     }
 }
