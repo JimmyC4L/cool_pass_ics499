@@ -14,7 +14,7 @@
         <br/>
 
         <div class="table-responsive" *ngIf="sharedAccounts">
-            <form name="searchForm" role="form" novalidate (ngSubmit)="loadWhere()" #editForm="ngForm">
+            <form name="searchForm" role="form" novalidate (ngSubmit)="search()" #editForm="ngForm">
                 <!--<div class="form-group">-->
                     <!--<label class="form-control-label" for="field_login">Login</label>-->
                     <!--<input type="text" class="form-control" name="login" id="field_login"-->
@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_environment">EnvID</label>
                     <input type="text" class="form-control" name="environment" id="field_environment"
-                           [(ngModel)]="sharedAccount.environment"/>
+                           [(ngModel)]="envId"/>
                 </div>
 
                 <!--<div class="form-group">-->

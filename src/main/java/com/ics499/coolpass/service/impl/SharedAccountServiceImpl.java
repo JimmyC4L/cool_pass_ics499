@@ -53,135 +53,14 @@ public class SharedAccountServiceImpl implements SharedAccountService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SharedAccount> findAll() {
         return sharedAccountRepository.findAll();
     }
 
     @Override
-    public List<SharedAccount> findWhere(SharedAccount sharedAccount){
-        List<SharedAccount> sharedAccountList=sharedAccountRepository.findAll();
-        List<SharedAccount> sharedAccountList1= new List<SharedAccount>() {
-            @Override
-            public int size() {
-                return 0;
-            }
-
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                return false;
-            }
-
-            @Override
-            public Iterator<SharedAccount> iterator() {
-                return null;
-            }
-
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @Override
-            public <T> T[] toArray(T[] a) {
-                return null;
-            }
-
-            @Override
-            public boolean add(SharedAccount sharedAccount) {
-                return false;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends SharedAccount> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(int index, Collection<? extends SharedAccount> c) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
-
-            @Override
-            public SharedAccount get(int index) {
-                return null;
-            }
-
-            @Override
-            public SharedAccount set(int index, SharedAccount element) {
-                return null;
-            }
-
-            @Override
-            public void add(int index, SharedAccount element) {
-
-            }
-
-            @Override
-            public SharedAccount remove(int index) {
-                return null;
-            }
-
-            @Override
-            public int indexOf(Object o) {
-                return 0;
-            }
-
-            @Override
-            public int lastIndexOf(Object o) {
-                return 0;
-            }
-
-            @Override
-            public ListIterator<SharedAccount> listIterator() {
-                return null;
-            }
-
-            @Override
-            public ListIterator<SharedAccount> listIterator(int index) {
-                return null;
-            }
-
-            @Override
-            public List<SharedAccount> subList(int fromIndex, int toIndex) {
-                return null;
-            }
-        };
-        for(int i=0;i<sharedAccountList.size();++i){
-            if(sharedAccountList.get(i).getEnvironment()==sharedAccount.getEnvironment()){
-                sharedAccountList1.add(sharedAccountList.get(i));
-            }
-        }
-    return sharedAccountList1;
+    public List<SharedAccount> findAllByEnvironment(Long environmentId) {
+        return sharedAccountRepository.findAllByEnvironment_IdOrderByEnvironment(environmentId);
     }
 
 

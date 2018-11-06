@@ -17,6 +17,7 @@ import { SharedAccountService } from './shared-account.service';
 })
 export class SharedAccountComponent implements OnInit, OnDestroy {
     currentAccount: any;
+    envId: number;
     sharedAccounts: ISharedAccount[];
     error: any;
     success: any;
@@ -62,15 +63,11 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
             );
     }
 
-    loadWhere() {
+    search() {
         this.sharedAccountService
-            .query({
-                page: this.page - 1,
-                size: this.itemsPerPage,
-                sort: this.sort()
-            })
+            .findAllByEnvironment(this.envId)
             .subscribe(
-                (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
+                (res: HttpResponse<ISharedAccount[]>) => (this.sharedAccounts = res.body),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
     }

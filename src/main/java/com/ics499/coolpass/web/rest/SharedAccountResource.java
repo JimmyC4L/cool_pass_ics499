@@ -91,12 +91,11 @@ public class SharedAccountResource {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-
-    public ResponseEntity<List<SharedAccount>> getSomeEnvironments(Environment environment){
-        log.debug("REST request to get some of Environments");
-        SharedAccount sh = new SharedAccount();
-        sh.environment(environment);
-        List<SharedAccount> data = sharedAccountService.findWhere(sh);
+    @GetMapping("/shared-accounts/get-all-by-env-id/{environmentId}")
+    @Timed
+    public ResponseEntity<List<SharedAccount>> getAllSharedAccountsByEnvironmentId(@PathVariable Long environmentId){
+        log.debug("REST request to get all shared accounts by environmentId");
+        List<SharedAccount> data = sharedAccountService.findAllByEnvironment(environmentId);
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
     /**
