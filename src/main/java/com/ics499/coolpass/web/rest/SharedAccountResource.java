@@ -93,10 +93,11 @@ public class SharedAccountResource {
 
     @GetMapping("/shared-accounts/get-all-by-env-id/{environmentId}")
     @Timed
-    public ResponseEntity<List<SharedAccount>> getAllSharedAccountsByEnvironmentId(@PathVariable Long environmentId){
+    public ResponseEntity<List<SharedAccount>> getAllSharedAccountsByEnvironmentId(Pageable pageable, @PathVariable Long environmentId){
         log.debug("REST request to get all shared accounts by environmentId");
-        List<SharedAccount> data = sharedAccountService.findAllByEnvironment(environmentId);
-        return new ResponseEntity<>(data, HttpStatus.OK);
+        Page<SharedAccount> page  = sharedAccountService.findAllByEnvironment(pageable, environmentId);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/shared-accounts");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
     /**
      * GET  /shared-accounts : get all the sharedAccounts.
@@ -121,7 +122,7 @@ public class SharedAccountResource {
      */
     @GetMapping("/shared-accounts/{id}")
     @Timed
-    public ResponseEntity<SharedAccount> getSharedAccount(@PathVariable Long id) {
+    public ResponseEntity<SharedAccount> getSharedAccount( @PathVariable Long id) {
         log.debug("REST request to get SharedAccount : {}", id);
         Optional<SharedAccount> sharedAccount = sharedAccountService.findOne(id);
         return ResponseUtil.wrapOrNotFound(sharedAccount);

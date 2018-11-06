@@ -64,12 +64,11 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
     }
 
     search() {
-        this.sharedAccountService
-            .findAllByEnvironment(this.envId)
-            .subscribe(
-                (res: HttpResponse<ISharedAccount[]>) => (this.sharedAccounts = res.body),
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
+        this.sharedAccountService.findAllByEnvironment(this.envId).subscribe(
+            // (res: HttpResponse<ISharedAccount[]>) => (this.sharedAccounts = res.body),
+            (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     loadPage(page: number) {

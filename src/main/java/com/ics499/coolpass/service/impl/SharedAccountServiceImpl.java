@@ -59,8 +59,8 @@ public class SharedAccountServiceImpl implements SharedAccountService {
     }
 
     @Override
-    public List<SharedAccount> findAllByEnvironment(Long environmentId) {
-        return sharedAccountRepository.findAllByEnvironment_IdOrderByEnvironment(environmentId);
+    public Page<SharedAccount> findAllByEnvironment(Pageable pageable, Long environmentId) {
+        return sharedAccountRepository.findAllByEnvironment_IdOrderByEnvironment(pageable, environmentId);
     }
 
 
