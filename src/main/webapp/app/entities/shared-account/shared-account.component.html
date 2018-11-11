@@ -14,34 +14,34 @@
         <br/>
 
         <div class="table-responsive" *ngIf="sharedAccounts">
-            <form name="searchForm" role="form" novalidate (ngSubmit)="search()" #editForm="ngForm">
-                <!--<div class="form-group">-->
-                    <!--<label class="form-control-label" for="field_login">Login</label>-->
-                    <!--<input type="text" class="form-control" name="login" id="field_login"-->
-                           <!--[(ngModel)]="sharedAccount.login"/>-->
-                <!--</div>-->
-                <div class="form-group">
-                    <label class="form-control-label" for="field_environment">EnvID</label>
-                    <input type="text" class="form-control" name="environment" id="field_environment"
-                           [(ngModel)]="envId"/>
-                </div>
-
-                <!--<div class="form-group">-->
-                    <!--<label class="form-control-label" for="field_environment">Environment</label>-->
-                    <!--<select class="form-control" id="field_environment" name="environment">-->
-                        <!--<option *ngIf="!editForm.value.environment" [ngValue]="null" selected></option>-->
-                        <!--<option-->
-                            <!--*ngFor="let environmentOption of environments; trackBy: trackEnvironmentById">-->
-                            <!--{{environmentOption.name}}-->
-                        <!--</option>-->
-                    <!--</select>-->
+            <form name="searchForm" class="float-left" role="form" novalidate (ngSubmit)="search()" #editForm="ngForm" style="display: inline;">
+                <span class="form-group"> Login:
+                    <input class="form-control" type="text" name="login" id="field_login" style="width: 200px; display: inline;"
+                           [(ngModel)]="login"/>
+                </span>
+                <span class="form-group"> Environment:
+                    <select class="form-control" id="field_environment" [(ngModel)]="envId" name="environment" style="width: 200px; display: inline;">
+                        <option [ngValue]="null" selected></option>
+                        <option  [ngValue]="environment.id"
+                            *ngFor="let environment of environments ; trackBy: trackEnvironmentById">
+                            {{environment.name}}
+                        </option>
+                </select>
+                </span>
                     <button type="submit" id="search-entity"
-                            class="btn btn-primary">
+                            class="btn btn-primary" style="display: inline;">
                         <fa-icon [icon]="'search'"></fa-icon><span>Search</span>
                     </button>
+            </form>
 
+            <form name="clearForm" role="form" novalidate (ngSubmit)="clear()" #editForm="ngForm">
+                <button type="submit" id="clear-entity"
+                        class="btn btn-primary" style="display: inline; margin-left: 10px;">
+                    <span>Reset Page</span>
+                </button>
             </form>
         </div>
+<br>
             <table class="table table-striped">
                 <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
