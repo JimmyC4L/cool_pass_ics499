@@ -24,7 +24,7 @@ export class SharedAccountImportComponent implements OnInit {
             file.withCredentials = false;
         };
         this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-            if (status == 417) {
+            if (status === 417) {
                 this.jhiAlertService.error('The shared account id already exist in the database!');
             } else {
                 this.jhiAlertService.success('uploaded success!');
