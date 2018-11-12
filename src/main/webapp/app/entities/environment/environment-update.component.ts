@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { IEnvironment } from 'app/shared/model/environment.model';
 import { EnvironmentService } from './environment.service';
-import {UserService} from 'app/core';
+import { UserService } from 'app/core';
 
 @Component({
     selector: 'jhi-environment-update',
@@ -17,7 +17,7 @@ export class EnvironmentUpdateComponent implements OnInit {
     authorities: any[];
     envAuthorities: any[];
 
-    constructor(private environmentService: EnvironmentService, private activatedRoute: ActivatedRoute, private  userService: UserService) {}
+    constructor(private environmentService: EnvironmentService, private activatedRoute: ActivatedRoute, private userService: UserService) {}
 
     ngOnInit() {
         this.isSaving = false;
@@ -36,7 +36,7 @@ export class EnvironmentUpdateComponent implements OnInit {
 
     save() {
         this.isSaving = true;
-        this.environment.authority_name = this.envAuthorities.join("/");
+        this.environment.authority_name = this.envAuthorities.join('/');
         if (this.environment.id !== undefined) {
             this.subscribeToSaveResponse(this.environmentService.update(this.environment));
         } else {
