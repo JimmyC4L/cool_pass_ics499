@@ -39,6 +39,11 @@ public class CsvImportService {
             List<SharedAccount> sharedAccounts = new ArrayList<>();
 
             for(SharedAccountCsv sharedAccountcsv: sharedAccountsCsv){
+                if(sharedAccountcsv.getId() != null){
+                    if(sharedAccountService.findOne(sharedAccountcsv.getId()) != null){
+                        throw new IllegalArgumentException("this shared account already exist with the id: " + sharedAccountcsv.getId());
+                    }
+                }
                 SharedAccount sharedAccount = new SharedAccount();
                 sharedAccount.setLogin(sharedAccountcsv.getLogin());
                 sharedAccount.setPassword(sharedAccountcsv.getPassword());
