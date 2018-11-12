@@ -5,13 +5,12 @@
                 <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
                     <h2 id="jhi-shared-account-heading">Import a csv file of Shared Accounts</h2>
                     <div>
-                        <jhi-alert-error></jhi-alert-error>
+                        <jhi-alert></jhi-alert>
                         <div class="container mt-3">
                             <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
 
                             <button type="button" class="btn btn-success btn-s"
-                                    (click)="uploader.uploadAll()"
-                                    [disabled]="!uploader.getNotUploadedItems().length" >
+                                    (click)="uploader.uploadAll()">
                                 Upload
                             </button>
 
