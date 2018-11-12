@@ -30,7 +30,7 @@ export const requestRoute: Routes = [
         path: 'request',
         component: RequestComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Requests'
         },
         canActivate: [UserRouteAccessService]
@@ -42,7 +42,7 @@ export const requestRoute: Routes = [
             request: RequestResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Requests'
         },
         canActivate: [UserRouteAccessService]
@@ -54,7 +54,7 @@ export const requestRoute: Routes = [
             request: RequestResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Requests'
         },
         canActivate: [UserRouteAccessService]
@@ -66,7 +66,7 @@ export const requestRoute: Routes = [
             request: RequestResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Requests'
         },
         canActivate: [UserRouteAccessService]
@@ -81,7 +81,7 @@ export const requestPopupRoute: Routes = [
             request: RequestResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'Requests'
         },
         canActivate: [UserRouteAccessService],

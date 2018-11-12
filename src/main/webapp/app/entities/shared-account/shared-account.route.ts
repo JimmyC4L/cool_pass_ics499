@@ -12,6 +12,7 @@ import { SharedAccountDetailComponent } from './shared-account-detail.component'
 import { SharedAccountUpdateComponent } from './shared-account-update.component';
 import { SharedAccountDeletePopupComponent } from './shared-account-delete-dialog.component';
 import { ISharedAccount } from 'app/shared/model/shared-account.model';
+import { SharedAccountImportComponent } from 'app/entities/shared-account/shared-account-import.component';
 
 @Injectable({ providedIn: 'root' })
 export class SharedAccountResolve implements Resolve<ISharedAccount> {
@@ -34,7 +35,7 @@ export const sharedAccountRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             defaultSort: 'id,asc',
             pageTitle: 'SharedAccounts'
         },
@@ -47,7 +48,7 @@ export const sharedAccountRoute: Routes = [
             sharedAccount: SharedAccountResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'SharedAccounts'
         },
         canActivate: [UserRouteAccessService]
@@ -55,6 +56,18 @@ export const sharedAccountRoute: Routes = [
     {
         path: 'shared-account/new',
         component: SharedAccountUpdateComponent,
+        resolve: {
+            sharedAccount: SharedAccountResolve
+        },
+        data: {
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
+            pageTitle: 'SharedAccounts'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'shared-account/import',
+        component: SharedAccountImportComponent,
         resolve: {
             sharedAccount: SharedAccountResolve
         },
@@ -71,7 +84,7 @@ export const sharedAccountRoute: Routes = [
             sharedAccount: SharedAccountResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'SharedAccounts'
         },
         canActivate: [UserRouteAccessService]
@@ -86,7 +99,7 @@ export const sharedAccountPopupRoute: Routes = [
             sharedAccount: SharedAccountResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_BUSINESS_OWNER'],
             pageTitle: 'SharedAccounts'
         },
         canActivate: [UserRouteAccessService],

@@ -9,6 +9,13 @@
             Create new Shared Account
             </span>
             </button>
+            <button id="jh-import-entity" class="btn btn-primary float-right jh-import-entity import-shared-account"
+                    [routerLink]="['/shared-account/import']">
+                <fa-icon [icon]="'plus'"></fa-icon>
+                <span>
+            Import new Shared Accounts
+            </span>
+            </button>
         </h2>
         <jhi-alert></jhi-alert>
         <br/>
@@ -28,6 +35,9 @@
                     <th jhiSortBy="environment.id"><span>Environment</span>
                         <fa-icon [icon]="'sort'"></fa-icon>
                     </th>
+                    <th jhiSortBy="environment.id"><span>Server</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
                     <th></th>
                 </tr>
                 </thead>
@@ -38,9 +48,10 @@
                     <td>{{sharedAccount.password}}</td>
                     <td>
                         <div *ngIf="sharedAccount.environment">
-                            <a [routerLink]="['../environment', sharedAccount.environment?.id, 'view' ]">{{sharedAccount.environment?.id}}</a>
+                            <a [routerLink]="['../environment', sharedAccount.environment?.id, 'view' ]">{{sharedAccount.environment?.name}}</a>
                         </div>
                     </td>
+                    <td>{{sharedAccount.environment.server}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

@@ -3,7 +3,7 @@ import './vendor.ts';
 import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import {NgbDatepickerConfig, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 
@@ -22,9 +22,10 @@ import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
 import { WorkspaceEnvironmentComponent } from 'app/layouts';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatTableModule, MatToolbarModule} from '@angular/material';
-import {TableComponent} from 'app/layouts/workspace-environment/table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule, MatToolbarModule } from '@angular/material';
+import { TableComponent } from 'app/layouts/workspace-environment/table.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -40,9 +41,18 @@ import {TableComponent} from 'app/layouts/workspace-environment/table.component'
         CoolPassHomeModule,
         CoolPassAccountModule,
         CoolPassEntityModule,
+        FormsModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, WorkspaceEnvironmentComponent, TableComponent],
+    declarations: [
+        JhiMainComponent,
+        NavbarComponent,
+        ErrorComponent,
+        PageRibbonComponent,
+        FooterComponent,
+        WorkspaceEnvironmentComponent,
+        TableComponent
+    ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
