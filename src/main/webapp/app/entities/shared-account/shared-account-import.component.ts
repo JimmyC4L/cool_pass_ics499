@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {IEnvironment} from 'app/shared/model/environment.model';
 import {FileUploader} from "ng2-file-upload";
 import {SERVER_API_URL} from "app/app.constants";
+import {JhiAlertService} from "ng-jhipster";
 
 @Component({
     selector: 'jhi-shared-account-import',
@@ -16,7 +17,7 @@ export class SharedAccountImportComponent implements OnInit {
 
     public uploader: FileUploader = new FileUploader({url: this.resourceUrl, itemAlias: 'file'});
 
-    constructor() {
+    constructor(private jhiAlertService: JhiAlertService) {
     }
 
     ngOnInit() {
@@ -24,8 +25,12 @@ export class SharedAccountImportComponent implements OnInit {
             file.withCredentials = false;
         };
         this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-            console.log('ImageUpload:uploaded:', item, status, response);
-            alert('File uploaded successfully');
+            if(status == 417){
+                this.jhiAlertService.error("The shared account id already exist in the database!")
+            } else {
+                this.jhiAlertService.success("uploaded success!")
+            }
+
         };
     }
 
