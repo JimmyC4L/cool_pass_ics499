@@ -108,6 +108,7 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.envId = null;
         this.router.navigate([
             '/shared-account',
             {
