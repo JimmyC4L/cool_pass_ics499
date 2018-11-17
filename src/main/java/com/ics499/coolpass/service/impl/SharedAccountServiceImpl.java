@@ -11,8 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Service Implementation for managing SharedAccount.
@@ -54,10 +53,20 @@ public class SharedAccountServiceImpl implements SharedAccountService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SharedAccount> findAll() {
         return sharedAccountRepository.findAll();
     }
 
+    @Override
+    public Page<SharedAccount> findAllByEnvironment(Pageable pageable, Long environmentId) {
+        return sharedAccountRepository.findAllByEnvironment_IdOrderByEnvironment(pageable, environmentId);
+    }
+
+    @Override
+    public Page<SharedAccount> findAllByLogin(Pageable pageable, String login) {
+        return sharedAccountRepository.findAllByLoginOrderByLogin(pageable, login);
+    }
 
     /**
      * Get one sharedAccount by id.

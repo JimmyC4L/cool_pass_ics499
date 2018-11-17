@@ -1,6 +1,7 @@
 package com.ics499.coolpass.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.ics499.coolpass.domain.Environment;
 import com.ics499.coolpass.domain.SharedAccount;
 import com.ics499.coolpass.service.SharedAccountService;
 import com.ics499.coolpass.web.rest.errors.BadRequestAlertException;
@@ -90,6 +91,25 @@ public class SharedAccountResource {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
+    @GetMapping("/shared-accounts/get-all-by-env-id/{environmentId}")
+    @Timed
+    public ResponseEntity<List<SharedAccount>> getAllSharedAccountsByEnvironmentId(Pageable pageable, @PathVariable Long environmentId){
+        log.debug("REST request to get all shared accounts by environmentId");
+        Page<SharedAccount> page  = sharedAccountService.findAllByEnvironment(pageable, environmentId);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/shared-accounts");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/shared-accounts/get-all-by-login/{login}")
+    @Timed
+    public ResponseEntity<List<SharedAccount>> getAllSharedAccountsByLogin(Pageable pageable, @PathVariable String login){
+        log.debug("REST request to get all shared accounts by login");
+        Page<SharedAccount> page  = sharedAccountService.findAllByLogin(pageable, login);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/shared-accounts");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+
     /**
      * GET  /shared-accounts : get all the sharedAccounts.
      *
@@ -113,7 +133,7 @@ public class SharedAccountResource {
      */
     @GetMapping("/shared-accounts/{id}")
     @Timed
-    public ResponseEntity<SharedAccount> getSharedAccount(@PathVariable Long id) {
+    public ResponseEntity<SharedAccount> getSharedAccount( @PathVariable Long id) {
         log.debug("REST request to get SharedAccount : {}", id);
         Optional<SharedAccount> sharedAccount = sharedAccountService.findOne(id);
         return ResponseUtil.wrapOrNotFound(sharedAccount);
