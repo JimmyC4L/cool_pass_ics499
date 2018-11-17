@@ -8,28 +8,28 @@ import {
     SharedAccountUpdateComponent,
     SharedAccountDeletePopupComponent,
     SharedAccountDeleteDialogComponent,
-    // SharedAccountImportComponent,
+    SharedAccountImportComponent,
     sharedAccountRoute,
     sharedAccountPopupRoute
 } from './';
-//import {FileUploadModule} from "ng2-file-upload";
+import {FileUploadModule} from "ng2-file-upload";
 
 const ENTITY_STATES = [...sharedAccountRoute, ...sharedAccountPopupRoute];
 
 @NgModule({
-    imports: [CoolPassSharedModule, RouterModule.forChild(ENTITY_STATES), HttpClientModule],
+    imports: [CoolPassSharedModule, RouterModule.forChild(ENTITY_STATES), HttpClientModule, FileUploadModule],
     declarations: [
         SharedAccountComponent,
         SharedAccountDetailComponent,
         SharedAccountUpdateComponent,
-        //SharedAccountImportComponent,
+        SharedAccountImportComponent,
         SharedAccountDeleteDialogComponent,
         SharedAccountDeletePopupComponent
     ],
     entryComponents: [
         SharedAccountComponent,
         SharedAccountUpdateComponent,
-        // SharedAccountImportComponent,
+        SharedAccountImportComponent,
         SharedAccountDeleteDialogComponent,
         SharedAccountDeletePopupComponent
     ],

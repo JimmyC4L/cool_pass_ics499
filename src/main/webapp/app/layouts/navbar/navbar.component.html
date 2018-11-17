@@ -32,7 +32,7 @@
                     <li>
                         <a class="dropdown-item" routerLink="workspace-environment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
-                            <span>Environments</span>
+                            <span>View Environments and Passwords</span>
                         </a>
                     </li>
                 </ul>
@@ -45,7 +45,7 @@
                     <span>
                         <fa-icon [icon]="'th-list'"></fa-icon>
                         <span>
-                            Entities
+                            List Management
                         </span>
                     </span>
                     </a>
@@ -53,21 +53,21 @@
                         <li>
                             <a class="dropdown-item" routerLink="environment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
-                                <span>Environment</span>
+                                <span>Manage Environments</span>
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item" routerLink="shared-account" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
-                                <span>Shared Account</span>
+                                <span>Manage Shared Account Passwords</span>
                             </a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" routerLink="request" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                                <fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>
-                                <span>Request</span>
-                            </a>
-                        </li>
+                        <!--<li>-->
+                            <!--<a class="dropdown-item" routerLink="request" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">-->
+                                <!--<fa-icon [icon]="'asterisk'" [fixedWidth]="true"></fa-icon>-->
+                                <!--<span>Request</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
@@ -87,42 +87,42 @@
                             <span>User management</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="admin/jhi-metrics" routerLinkActive="active" (click)="collapseNavbar()">
-                            <fa-icon [icon]="'tachometer-alt'" [fixedWidth]="true"></fa-icon>
-                            <span>Metrics</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="admin/jhi-health" routerLinkActive="active" (click)="collapseNavbar()">
-                            <fa-icon [icon]="'heart'" [fixedWidth]="true"></fa-icon>
-                            <span>Health</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="admin/jhi-configuration" routerLinkActive="active" (click)="collapseNavbar()">
-                            <fa-icon [icon]="'list'" [fixedWidth]="true"></fa-icon>
-                            <span>Configuration</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="admin/audits" routerLinkActive="active" (click)="collapseNavbar()">
-                            <fa-icon [icon]="'bell'" [fixedWidth]="true"></fa-icon>
-                            <span>Audits</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="admin/logs" routerLinkActive="active" (click)="collapseNavbar()">
-                            <fa-icon [icon]="'tasks'" [fixedWidth]="true"></fa-icon>
-                            <span>Logs</span>
-                        </a>
-                    </li>
-                    <li *ngIf="swaggerEnabled">
-                        <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active" (click)="collapseNavbar()">
-                            <fa-icon [icon]="'book'" [fixedWidth]="true"></fa-icon>
-                            <span>API</span>
-                        </a>
-                    </li>
+                    <!--<li>-->
+                        <!--<a class="dropdown-item" routerLink="admin/jhi-metrics" routerLinkActive="active" (click)="collapseNavbar()">-->
+                            <!--<fa-icon [icon]="'tachometer-alt'" [fixedWidth]="true"></fa-icon>-->
+                            <!--<span>Metrics</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="dropdown-item" routerLink="admin/jhi-health" routerLinkActive="active" (click)="collapseNavbar()">-->
+                            <!--<fa-icon [icon]="'heart'" [fixedWidth]="true"></fa-icon>-->
+                            <!--<span>Health</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="dropdown-item" routerLink="admin/jhi-configuration" routerLinkActive="active" (click)="collapseNavbar()">-->
+                            <!--<fa-icon [icon]="'list'" [fixedWidth]="true"></fa-icon>-->
+                            <!--<span>Configuration</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="dropdown-item" routerLink="admin/audits" routerLinkActive="active" (click)="collapseNavbar()">-->
+                            <!--<fa-icon [icon]="'bell'" [fixedWidth]="true"></fa-icon>-->
+                            <!--<span>Audits</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a class="dropdown-item" routerLink="admin/logs" routerLinkActive="active" (click)="collapseNavbar()">-->
+                            <!--<fa-icon [icon]="'tasks'" [fixedWidth]="true"></fa-icon>-->
+                            <!--<span>Logs</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li *ngIf="swaggerEnabled">-->
+                        <!--<a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active" (click)="collapseNavbar()">-->
+                            <!--<fa-icon [icon]="'book'" [fixedWidth]="true"></fa-icon>-->
+                            <!--<span>API</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
                     <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                 </ul>
             </li>
@@ -151,12 +151,12 @@
                             <span>Password</span>
                         </a>
                     </li>
-                    <li *ngSwitchCase="true">
-                        <a class="dropdown-item" routerLink="sessions" routerLinkActive="active" (click)="collapseNavbar()">
-                            <fa-icon [icon]="'cloud'" [fixedWidth]="true"></fa-icon>
-                            <span>Sessions</span>
-                        </a>
-                    </li>
+                    <!--<li *ngSwitchCase="true">-->
+                        <!--<a class="dropdown-item" routerLink="sessions" routerLinkActive="active" (click)="collapseNavbar()">-->
+                            <!--<fa-icon [icon]="'cloud'" [fixedWidth]="true"></fa-icon>-->
+                            <!--<span>Sessions</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
                     <li *ngSwitchCase="true">
                         <a class="dropdown-item" (click)="logout()" id="logout">
                             <fa-icon [icon]="'sign-out-alt'" [fixedWidth]="true"></fa-icon>
