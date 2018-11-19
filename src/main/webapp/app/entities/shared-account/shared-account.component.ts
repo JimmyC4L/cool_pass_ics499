@@ -1,17 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {HttpErrorResponse, HttpHeaders, HttpResponse} from '@angular/common/http';
 
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {JhiEventManager, JhiParseLinks, JhiAlertService} from 'ng-jhipster';
 
-import { ISharedAccount } from 'app/shared/model/shared-account.model';
-import { Principal } from 'app/core';
+import {ISharedAccount} from 'app/shared/model/shared-account.model';
+import {Principal} from 'app/core';
 
-import { ITEMS_PER_PAGE } from 'app/shared';
-import { SharedAccountService } from './shared-account.service';
-import { IEnvironment } from 'app/shared/model/environment.model';
-import { EnvironmentService } from 'app/entities/environment';
+import {ITEMS_PER_PAGE} from 'app/shared';
+import {SharedAccountService} from './shared-account.service';
+import {IEnvironment} from 'app/shared/model/environment.model';
+import {EnvironmentService} from 'app/entities/environment';
 
 @Component({
     selector: 'jhi-shared-account',
@@ -68,23 +68,40 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+        this.envId = null;
+        this.login = null;
     }
 
     search() {
-        if (this.envId != null) {
+        debugger;
+        if (this.envId == null && this.login == null) {
+            this.loadAll();
+        } else {
+            if (this.envId != null && this.login == null) {
+                this.sharedAccountService
+                    .findAllByEnvironment(this.envId)
+                    .subscribe(
+                        (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
+                        (res: HttpErrorResponse) => this.onError(res.message)
+                    );
+            }
+
+            if (this.login != null && this.envId == null) {
+                this.sharedAccountService
+                    .findAllByLogin(this.login)
+                    .subscribe(
+                        (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
+                        (res: HttpErrorResponse) => this.onError(res.message)
+                    );
+            }
+
             this.sharedAccountService
-                .findAllByEnvironment(this.envId)
+                .findAllByEnvironmentAndByLogin(this.login, this.envId)
                 .subscribe(
                     (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
                     (res: HttpErrorResponse) => this.onError(res.message)
                 );
-        } else if (this.login != null) {
-            this.sharedAccountService
-                .findAllByLogin(this.login)
-                .subscribe(
-                    (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
+
         }
     }
 
@@ -109,6 +126,7 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
     clear() {
         this.page = 0;
         this.envId = null;
+        this.login = null;
         this.router.navigate([
             '/shared-account',
             {

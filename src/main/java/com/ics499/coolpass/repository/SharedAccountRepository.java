@@ -20,4 +20,6 @@ public interface SharedAccountRepository extends JpaRepository<SharedAccount, Lo
 
     Page<SharedAccount> findAllByLoginOrderByLogin(Pageable pageable, String login);
 
+    Page<SharedAccount> findAllByLoginAndEnvironment_Id(Pageable pageable,String login, Long environmentId);
+
 }

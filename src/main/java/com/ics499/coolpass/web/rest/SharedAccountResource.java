@@ -109,6 +109,15 @@ public class SharedAccountResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    @GetMapping("/shared-accounts/get-all-by-login/{login}/{id}")
+    @Timed
+    public ResponseEntity<List<SharedAccount>> getAllSharedAccountsByEnvironmentIdAndByLogin(Pageable pageable, @RequestParam(value="param", required=false) String login, Long id){
+        log.debug("REST request to get all shared accounts by login and env id");
+        Page<SharedAccount> page  = sharedAccountService.findAllByEnvironmentAndByLogin(pageable, login, id);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "get-all-by-login-and-id");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
 
     /**
      * GET  /shared-accounts : get all the sharedAccounts.
