@@ -37,6 +37,14 @@ export class SharedAccountService {
         return this.http.get<IEnvironment[]>(this.resourceUrl + '-no-page', { observe: 'response' });
     }
 
+    findAllByEnvironment(environmentId: number): Observable<EntityArrayResponseType> {
+        return this.http.get<ISharedAccount[]>(this.resourceUrl + '/get-all-by-env-id/' + environmentId, { observe: 'response' });
+    }
+
+    findAllByLogin(login: string): Observable<EntityArrayResponseType> {
+        return this.http.get<ISharedAccount[]>(this.resourceUrl + '/get-all-by-login/' + login, { observe: 'response' });
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }

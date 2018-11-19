@@ -31,6 +31,10 @@ public interface SharedAccountService {
 
     List<SharedAccount> findAll();
 
+    Page<SharedAccount> findAllByEnvironment(Pageable pageable, Long environmentId);
+
+    Page<SharedAccount> findAllByLogin(Pageable pageable, String login);
+
 
     /**
      * Get the "id" sharedAccount.

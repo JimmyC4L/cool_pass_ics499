@@ -3,94 +3,126 @@
         <h2 id="page-heading">
             <span>Shared Accounts</span>
             <div class="float-right">
-            <button id="jh-create-entity" class="btn btn-primary jh-create-entity create-shared-account"
-                    [routerLink]="['/shared-account/new']">
-                <fa-icon [icon]="'plus'"></fa-icon>
-                <span>
+                <button id="jh-create-entity" class="btn btn-primary jh-create-entity create-shared-account"
+                        [routerLink]="['/shared-account/new']">
+                    <fa-icon [icon]="'plus'"></fa-icon>
+                    <span>
             Create new Shared Account
             </span>
-            </button>
-            <button id="jh-import-entity" class="btn btn-primary"
-                    [routerLink]="['/shared-account/import']">
-                <fa-icon [icon]="'plus'"></fa-icon>
-                <span>
-            Import new Shared Accounts
+                </button>
+                <button id="jh-import-entity" class="btn btn-primary"
+                        [routerLink]="['/shared-account/import']">
+                    <fa-icon [icon]="'plus'"></fa-icon>
+                    <span>
+            Import/Export Shared Accounts
             </span>
-            </button>
+                </button>
             </div>
         </h2>
         <jhi-alert></jhi-alert>
         <br/>
-        <div class="table-responsive" *ngIf="sharedAccounts">
-            <table class="table table-striped">
-                <thead>
-                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-                    <th jhiSortBy="id"><span>ID</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th jhiSortBy="login"><span>Login</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th jhiSortBy="password"><span>Password</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th jhiSortBy="environment.id"><span>Environment</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th jhiSortBy="environment.id"><span>Server</span>
-                        <fa-icon [icon]="'sort'"></fa-icon>
-                    </th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let sharedAccount of sharedAccounts ;trackBy: trackId">
-                    <td><a [routerLink]="['/shared-account', sharedAccount.id, 'view' ]">{{sharedAccount.id}}</a></td>
-                    <td>{{sharedAccount.login}}</td>
-                    <td>{{sharedAccount.password}}</td>
-                    <td>
-                        <div *ngIf="sharedAccount.environment">
-                            <a [routerLink]="['../environment', sharedAccount.environment?.id, 'view' ]">{{sharedAccount.environment?.name}}</a>
-                        </div>
-                    </td>
-                    <td>{{sharedAccount.environment.server}}</td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    [routerLink]="['/shared-account', sharedAccount.id, 'view' ]"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon [icon]="'eye'"></fa-icon>
-                                <span class="d-none d-md-inline">View</span>
-                            </button>
-                            <button type="submit"
-                                    [routerLink]="['/shared-account', sharedAccount.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                                <span class="d-none d-md-inline">Edit</span>
-                            </button>
-                            <button type="submit"
-                                    [routerLink]="['/', { outlets: { popup: 'shared-account/'+ sharedAccount.id + '/delete'} }]"
-                                    replaceUrl="true"
-                                    queryParamsHandling="merge"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon [icon]="'times'"></fa-icon>
-                                <span class="d-none d-md-inline">Delete</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+
+        <div class="row" *ngIf="sharedAccounts">
+            <form name="searchForm" class="form-inline" role="form" novalidate (ngSubmit)="search()" #editForm="ngForm">
+                <span class="form-group px-2"> Login:
+                    <input class="form-control" type="text" name="login" id="field_login"
+                           style="width: 200px; display: inline;"
+                           [(ngModel)]="login"/>
+                </span>
+                <span class="form-group px-2"> Environment:
+                    <select class="form-control" id="field_environment" [(ngModel)]="envId" name="environment">
+                        <option [ngValue]="null" selected></option>
+                        <option [ngValue]="environment.id"
+                                *ngFor="let environment of environments ; trackBy: trackEnvironmentById">
+                            {{environment.name}}
+                        </option>
+                    </select>
+                </span>
+                <span class="px-2">
+                    <button type="submit" id="search-entity"
+                            class="btn btn-primary">
+                        <fa-icon [icon]="'search'"></fa-icon><span>Search</span>
+                    </button>
+                </span>
+
+            </form>
+            <span class="px-1">
+                <button id="clear-entity"
+                    class="btn btn-primary" (click)="clear()">
+                <span>Reset Page</span>
+                </button>
+            </span>
         </div>
-        <div *ngIf="sharedAccounts && sharedAccounts.length">
-            <div class="row justify-content-center">
-                <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
-                                [itemsPerPage]="itemsPerPage"></jhi-item-count>
-            </div>
-            <div class="row justify-content-center">
-                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
-                                [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
-            </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="id"><span>ID</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="login"><span>Login</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="password"><span>Password</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="environment.id"><span>Environment</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="environment.id"><span>Server</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sharedAccount of sharedAccounts ;trackBy: trackId">
+                <td><a [routerLink]="['/shared-account', sharedAccount.id, 'view' ]">{{sharedAccount.id}}</a></td>
+                <td>{{sharedAccount.login}}</td>
+                <td>{{sharedAccount.password}}</td>
+                <td>
+                    <div *ngIf="sharedAccount.environment">
+                        <a [routerLink]="['../environment', sharedAccount.environment?.id, 'view' ]">{{sharedAccount.environment?.name}}</a>
+                    </div>
+                </td>
+                <td>{{sharedAccount.environment.server}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/shared-account', sharedAccount.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/shared-account', sharedAccount.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'shared-account/'+ sharedAccount.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="sharedAccounts && sharedAccounts.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
+                            [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                            [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
         </div>
     </div>
+</div>
 </div>

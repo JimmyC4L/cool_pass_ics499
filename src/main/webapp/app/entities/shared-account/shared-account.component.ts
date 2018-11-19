@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
@@ -9,6 +10,8 @@ import { Principal } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 import { SharedAccountService } from './shared-account.service';
+import { IEnvironment } from 'app/shared/model/environment.model';
+import { EnvironmentService } from 'app/entities/environment';
 
 @Component({
     selector: 'jhi-shared-account',
@@ -16,7 +19,11 @@ import { SharedAccountService } from './shared-account.service';
 })
 export class SharedAccountComponent implements OnInit, OnDestroy {
     currentAccount: any;
+    envId: number;
+    login: string;
+    password: string;
     sharedAccounts: ISharedAccount[];
+    environments: IEnvironment[];
     error: any;
     success: any;
     eventSubscriber: Subscription;
@@ -36,12 +43,14 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
         private jhiAlertService: JhiAlertService,
         private principal: Principal,
         private activatedRoute: ActivatedRoute,
+        private environmentService: EnvironmentService,
         private router: Router,
         private eventManager: JhiEventManager
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe(data => {
             this.page = data.pagingParams.page;
+            this.environments = [];
             this.previousPage = data.pagingParams.page;
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
@@ -59,6 +68,24 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+    }
+
+    search() {
+        if (this.envId != null) {
+            this.sharedAccountService
+                .findAllByEnvironment(this.envId)
+                .subscribe(
+                    (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+        } else if (this.login != null) {
+            this.sharedAccountService
+                .findAllByLogin(this.login)
+                .subscribe(
+                    (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+        }
     }
 
     loadPage(page: number) {
@@ -81,6 +108,7 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.envId = null;
         this.router.navigate([
             '/shared-account',
             {
@@ -88,6 +116,12 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         ]);
+        this.environmentService.query().subscribe(
+            (res: HttpResponse<IEnvironment[]>) => {
+                this.environments = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
         this.loadAll();
     }
 
@@ -97,6 +131,12 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
             this.currentAccount = account;
         });
         this.registerChangeInSharedAccounts();
+        this.environmentService.query().subscribe(
+            (res: HttpResponse<IEnvironment[]>) => {
+                this.environments = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     ngOnDestroy() {
@@ -104,6 +144,10 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
     }
 
     trackId(index: number, item: ISharedAccount) {
+        return item.id;
+    }
+
+    trackEnvironmentById(index: number, item: IEnvironment) {
         return item.id;
     }
 
