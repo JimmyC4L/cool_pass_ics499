@@ -6,9 +6,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-
 /**
  * Spring Data  repository for the SharedAccount entity.
  */
@@ -19,7 +16,5 @@ public interface SharedAccountRepository extends JpaRepository<SharedAccount, Lo
     Page<SharedAccount> findAllByEnvironment_IdOrderByEnvironment(Pageable pageable, Long environmentId);
 
     Page<SharedAccount> findAllByLoginOrderByLogin(Pageable pageable, String login);
-
-    Page<SharedAccount> findAllByLoginAndEnvironment_Id(Pageable pageable,String login, Long environmentId);
 
 }

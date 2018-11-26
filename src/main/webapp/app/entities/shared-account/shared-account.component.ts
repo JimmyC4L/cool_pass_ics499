@@ -73,35 +73,31 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
     }
 
     search() {
-        debugger;
-        if (this.envId == null && this.login == null) {
+        if (this.envId === null && this.login === null) {
             this.loadAll();
         } else {
-            if (this.envId != null && this.login == null) {
+            if (this.envId != null && (this.login === null || this.login === "")) {
                 this.sharedAccountService
                     .findAllByEnvironment(this.envId)
                     .subscribe(
                         (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
                         (res: HttpErrorResponse) => this.onError(res.message)
                     );
-            }
-
-            if (this.login != null && this.envId == null) {
+            } else if (this.login != null && this.envId === null ) {
                 this.sharedAccountService
                     .findAllByLogin(this.login)
                     .subscribe(
                         (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
                         (res: HttpErrorResponse) => this.onError(res.message)
                     );
+            } else if (this.login != null && this.envId != null){
+                this.sharedAccountService
+                    .findAllByEnvironment(this.envId)
+                    .subscribe(
+                        (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccountsAndFilterByLogin(res.body, res.headers),
+                        (res: HttpErrorResponse) => this.onError(res.message)
+                    );
             }
-
-            this.sharedAccountService
-                .findAllByEnvironmentAndByLogin(this.login, this.envId)
-                .subscribe(
-                    (res: HttpResponse<ISharedAccount[]>) => this.paginateSharedAccounts(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
-
         }
     }
 
@@ -186,6 +182,17 @@ export class SharedAccountComponent implements OnInit, OnDestroy {
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.queryCount = this.totalItems;
         this.sharedAccounts = data;
+    }
+
+    private paginateSharedAccountsAndFilterByLogin(data: ISharedAccount[], headers: HttpHeaders) {
+        this.paginateSharedAccounts(data, headers)
+        let list = [];
+       for( let sharedAccount of this.sharedAccounts){
+           if (sharedAccount.login === this.login) {
+               list.push(sharedAccount);
+           }
+       }
+       this.sharedAccounts = list;
     }
 
     private onError(errorMessage: string) {

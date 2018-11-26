@@ -68,11 +68,6 @@ public class SharedAccountServiceImpl implements SharedAccountService {
         return sharedAccountRepository.findAllByLoginOrderByLogin(pageable, login);
     }
 
-    @Override
-    public Page<SharedAccount> findAllByEnvironmentAndByLogin(Pageable pageable, String login, Long environmentId) {
-        return  sharedAccountRepository.findAllByLoginAndEnvironment_Id(pageable, login, environmentId);
-    }
-
     /**
      * Get one sharedAccount by id.
      *
