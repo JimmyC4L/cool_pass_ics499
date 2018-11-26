@@ -28,6 +28,8 @@ export class EnvironmentUpdateComponent implements OnInit {
         this.userService.authorities().subscribe(authorities => {
             this.authorities = authorities;
         });
+
+        this.envAuthorities = this.environment.authority_name.split('/');
     }
 
     previousState() {
