@@ -35,7 +35,6 @@ public interface SharedAccountService {
 
     Page<SharedAccount> findAllByLogin(Pageable pageable, String login);
 
-
     /**
      * Get the "id" sharedAccount.
      *
